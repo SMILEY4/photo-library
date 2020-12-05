@@ -3,3 +3,13 @@ display:
   unit:
     name: "mph"
     factor: 2.23694
+
+
+
+# db setup
+quarkus:
+  datasource:
+    db-kind: h2
+    jdbc:
+      url: jdbc:h2:mem:photolibrary
+      max-size: 16
