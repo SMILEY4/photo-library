@@ -21,6 +21,14 @@ class PhotoLibraryService(private val dataAccess: DataAccess) {
 			.count()
 	}
 
+	fun importFiles(data: Entities.ImportFilesRest): Int {
+		return data.paths
+			.map { path -> File(path) }
+			.filter { file -> file.extension == "jpeg" || file.extension == "jpg" }
+			.map { file -> importFile(file) }
+			.count()
+	}
+
 
 	fun importFile(file: File) {
 		val image = ImageIO.read(file)

@@ -1,0 +1,46 @@
+.image-list {
+	padding:    10px;
+	background: #d5d5d5;
+}
+
+
+.image-entry {
+	border:        1px solid #c2c2c2;
+	border-radius: 10px;
+	background:    white;
+	display:       flex;
+	height:        100px;
+	padding:       10px;
+}
+
+
+.image-entry:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+
+.image-container {
+	width:      140px;
+	height:     100px;
+	position:   relative;
+	background: #1c1c1c;
+}
+
+
+.image-container > img {
+	max-height: 100px;
+	max-width:  140px;
+	width:      auto;
+	height:     auto;
+
+	position:   absolute;
+	margin:     auto;
+	top:        0;
+	bottom:     0;
+	left:       0;
+	right:      0;
+}
+
+.image-data {
+	margin-left: 5px;
+}
