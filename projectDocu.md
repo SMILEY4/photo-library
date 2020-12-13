@@ -62,13 +62,12 @@ Communication between React and Electron
 
 ##  MVP
 
-- create new project 
+- create new project
 - load existing project
 - import files (desktop)
 - remove files (desktop, web)
 - view list of files (desktop, web)
 - open raw file (desktop, web)
-
 - show additional info about selected file (desktop, web)
   - file preview (if image show raw or "2nd level thumbnail" ?)
   - file information
