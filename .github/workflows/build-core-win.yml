@@ -1,0 +1,33 @@
+name: build core windows
+
+on: [ workflow_dispatch ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install graalvm
+        uses: ayltai/setup-graalvm@v1
+        with:
+            java-version: 11
+            graalvm-version: '20.3.0'
+            native-image: true
+
+      - name: Enable Dev Command Prompt
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Build native executable
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+            mvn package -Pnative -DskipTests -f photo-library-core/pom.xml
+
+      - uses: actions/upload-artifact@v2
+        with:
+            name: photo-library-core-win
+            path: photo-library-core/target/
+            retention-days: 2
