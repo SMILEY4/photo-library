@@ -1,12 +1,10 @@
 package de.ruegnerlukas.photolibrary.core.controller
 
 import de.ruegnerlukas.photolibrary.core.common.Json
-import de.ruegnerlukas.photolibrary.core.model.ImageData
 import de.ruegnerlukas.photolibrary.core.service.ImageService
 import org.jboss.logging.Logger
-import javax.ws.rs.GET
-import javax.ws.rs.POST
-import javax.ws.rs.Path
+import javax.ws.rs.*
+import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
 @Path("${ControllerConstants.PHOTO_LIB_BASE_URI}/api")
@@ -16,19 +14,27 @@ class ImageController(val imageService: ImageService) {
 
 
 	@POST
-	@Path("image")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("image/import")
 	fun importImages(imagePaths: Array<String>): Response {
 		log.info("BEFORE REQUEST: Import images '${Json.pretty(imagePaths)}'.")
 		imageService.importImages(imagePaths)
-		return Response.accepted().build()
+		return Response
+			.accepted()
+			.header("Access-Control-Allow-Origin", "*")
+			.build()
 	}
 
 
 	@GET
 	@Path("image")
-	fun getImages(): List<ImageData> {
+	@Produces(MediaType.APPLICATION_JSON)
+	fun getImages(): Response {
 		log.info("BEFORE REQUEST: Get images.")
-		return imageService.getImages()
+		return Response
+			.ok(imageService.getImages())
+			.header("Access-Control-Allow-Origin", "*")
+			.build()
 	}
 
 

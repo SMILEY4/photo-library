@@ -19,8 +19,8 @@ function createWindow() {
 		}
 	});
 
-	if(isDev) {
-		mainWindow.webContents.openDevTools({ mode: 'detach' });
+	if (isDev) {
+		mainWindow.webContents.openDevTools({mode: 'detach'});
 		mainWindow.loadURL("http://localhost:3000");
 	} else {
 		mainWindow.loadURL("file://${path.join(__dirname, '../build/index.html");
@@ -62,7 +62,7 @@ function createMenu() {
 				},
 				{
 					label: "Refresh",
-					onClick() {
+					click() {
 						mainWindow.webContents.send("UPDATED")
 					}
 				},
@@ -82,20 +82,15 @@ function createMenu() {
 
 function importFiles(filePaths) {
 	console.log("import files")
-	const url = "http://localhost:8080/photolibrary/api/images/import/files"
-	const params = {
-		headers: {
-			"content-type": "application/json; charset=UTF-8"
-		},
-		body: JSON.stringify({paths: filePaths}),
-		method: "POST"
-	}
-
-	fetch(url, params)
-		.then(data => {
-			mainWindow.webContents.send("UPDATED")
-		})
-
+	fetch("http://localhost:8080/photolibrary/api/image/import", {
+		method: 'POST',
+		headers: {'content-type': 'application/json'},
+		body: JSON.stringify(filePaths)
+	})
+	.then(data => {
+		console.log("then: " + JSON.stringify(data))
+		mainWindow.webContents.send("UPDATED")
+	})
 }
 
 

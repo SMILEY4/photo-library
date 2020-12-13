@@ -28,7 +28,7 @@ export class ElectronApp extends React.Component {
 
 
 	updateImageList() {
-		fetch("http://localhost:8080/photolibrary/api/images")
+		fetch("http://localhost:8080/photolibrary/api/image")
 		.then(data => data.json())
 		.then(
 			data => this.setState({images: data}),

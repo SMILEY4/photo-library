@@ -21,6 +21,7 @@
 
 .image-container {
 	width:      140px;
+	min-width:  140px;
 	height:     100px;
 	position:   relative;
 	background: #1c1c1c;
@@ -41,6 +42,12 @@
 	right:      0;
 }
 
+
 .image-data {
 	margin-left: 5px;
+}
+
+
+.image-name {
+	font-weight: bold;
 }

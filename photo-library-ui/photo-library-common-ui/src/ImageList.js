@@ -23,6 +23,9 @@ export function ImageList(props) {
 					<div className="image-name">
 						{entry.name}
 					</div>
+					<div className="image-path">
+						{entry.path}
+					</div>
 					<div className="image-type">
 						{entry.type}
 					</div>

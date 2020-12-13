@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped
 class ImageDataAccess(val dataAccess: DataAccess) {
 
 	fun insertImage(image: ImageData) {
+		println("insert image ${image.path}")
 		dataAccess.insert(
 			"INSERT INTO images (path, name, type, thumbnail) VALUES ('${image.path}', '${image.name}', '${image.type}', ?)",
 			image.thumbnail
