@@ -25,6 +25,6 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-            name: photo-library-core-macOS
+            name: photo-library-core-macos
             path: photo-library-core/target/
             retention-days: 2

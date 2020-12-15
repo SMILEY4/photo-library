@@ -19,12 +19,18 @@ function createWindow() {
 		}
 	});
 
+	console.log(__dirname)
+	console.log(`file://${__dirname}/build/index.html`);
+	console.log(`file://${__dirname}/../build/index.html`);
+
 	if (isDev) {
 		mainWindow.webContents.openDevTools({mode: 'detach'});
 		mainWindow.loadURL("http://localhost:3000");
 	} else {
-		mainWindow.loadURL("file://${path.join(__dirname, '../build/index.html");
+		mainWindow.loadURL(`file://${__dirname}/../build/index.html`);
 	}
+
+	mainWindow.webContents.openDevTools({mode: 'detach'});
 
 	createMenu();
 	mainWindow.once('ready-to-show', () => mainWindow.show());
@@ -92,8 +98,3 @@ function importFiles(filePaths) {
 		mainWindow.webContents.send("UPDATED")
 	})
 }
-
-
-
-
-

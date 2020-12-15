@@ -1,14 +1,14 @@
 {
   "name": "photo-library-electron",
   "version": "0.1.0",
-  "main": "./src/main.js",
+  "main": "src/main.js",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "concurrently": "^5.3.0",
-    "electron": "^11.0.3",
     "electron-is-dev": "^1.2.0",
     "node-fetch": "^2.6.1",
     "photo-library-common-ui": "file:../photo-library-common-ui",
@@ -24,7 +24,26 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "ebuild": "npm run build && node_modules/.bin/build",
-    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\""
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dist": "react-app-rewired build && electron-builder build"
+  },
+  "build": {
+    "appId": "de.ruegnerlukas.photolibrary",
+    "extends": null,
+    "publish": null,
+    "files": [
+      "./build/**/*",
+      "build/**/*",
+      "./src/main.js",
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+        "target": "portable"
+    },
+    "mac": {
+        "target": "dmg"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +65,8 @@
   },
   "devDependencies": {
     "customize-cra": "^1.0.0",
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1",
     "react-app-rewired": "^2.1.7"
   }
 }
