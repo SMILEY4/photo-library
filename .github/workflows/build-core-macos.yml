@@ -23,6 +23,11 @@ jobs:
         run:
             mvn package -Pnative -DskipTests -f photo-library-core/pom.xml
 
+      - name: Check
+        run: |
+            cd photo-library-core/target
+            ls -l
+
       - uses: actions/upload-artifact@v2
         with:
             name: photo-library-core-macos
