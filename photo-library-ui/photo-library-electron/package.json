@@ -39,10 +39,10 @@
       "package.json"
     ],
     "win": {
-        "target": "portable"
+      "target": "portable"
     },
     "mac": {
-        "target": "dmg"
+      "target": "dmg"
     }
   },
   "eslintConfig": {
