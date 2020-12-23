@@ -1,4 +1,10 @@
+
+
+
+
 ## I. Features
+
+
 
 #### 1. Import / Add Files
 
@@ -113,7 +119,21 @@ Modify values of fields of any element
 
 
 
-## II. Project Settings
+## II. Project Handling
+
+Project == "Library" ?
+
+#### 1. Start-Screen: options when opening the application
+
+- **open library:** manually select a project-file to open 
+- **open recent**: List of recently opened projects. Select one to open it.
+- **create new:** Opens a popup to configure a new project. Does not open settings (settings can be changed at any time after creating the project). Set target directory and project name. 
+
+
+
+
+
+## III. Project Settings
 
 #### 1. Fields for all elements
 
@@ -145,7 +165,7 @@ Modify values of fields of any element
 
 
 
-## III. "Levels of Preview"
+## IV. "Levels of Preview"
 
 1. Thumbnail
    - smallest
