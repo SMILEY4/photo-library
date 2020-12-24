@@ -1,10 +1,12 @@
-let initialWindow;
+const {BrowserWindow} = require('electron');
 
 const DEV_INTERFACE_LOCATION = "http://localhost:3000";
 const PROD_INTERFACE_LOCATION = `file://${__dirname}/../build/index.html`;
 
+let initialWindow;
 
-export function createInitialWindow(isInDevMode) {
+
+function createInitialWindow(isInDevMode) {
 
 	initialWindow = buildWindow()
 	loadInterface(isInDevMode)
@@ -14,11 +16,16 @@ export function createInitialWindow(isInDevMode) {
 }
 
 
+exports.createInitialWindow = createInitialWindow;
+
+
 function buildWindow() {
 	return new BrowserWindow({
-		title: "Photo Library - (Lukas Ruegner, 2020)",
-		width: 800,
-		height: 600,
+		title: "SimpleLib - (Lukas Ruegner, 2020)",
+		width: 650,
+		height: 420,
+		minWidth: 400,
+		minHeight: 400,
 		show: false,
 		webPreferences: {
 			nodeIntegration: true,

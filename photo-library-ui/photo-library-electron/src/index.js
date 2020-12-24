@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import MainInterfaceRoot from "./photolibrary/ui/MainInterfaceRoot";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<div>
-			Hello from Photo-Library
-		</div>
+		<MainInterfaceRoot/>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
