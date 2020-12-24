@@ -59,12 +59,12 @@ export default function ButtonBase({label, style, icon, iconSecond, iconButton, 
 
 	function getClassName(disabled, style, label, iconButton, addClassName) {
 		let className = "button";
-		className += style ? (" button-" + style) : (" button-" + ButtonStyles.NORMAL);
+		className += style ? (" buttonOld-" + style) : (" buttonOld-" + ButtonStyles.NORMAL);
 		if (disabled) {
-			className += " button-disabled"
+			className += " buttonOld-disabled"
 		}
 		if (!label || iconButton) {
-			className += " icon-button"
+			className += " icon-buttonOld"
 		}
 		if (addClassName) {
 			className += " " + addClassName
@@ -78,12 +78,12 @@ export default function ButtonBase({label, style, icon, iconSecond, iconButton, 
 ButtonBase.propTypes = {
 
 	/**
-	 * The text to display inside the button
+	 * The text to display inside the buttonOld
 	 * */
 	label: PropTypes.string,
 
 	/**
-	 * The style or type of this button (either "normal", "ghost" or "raw" -> see "ButtonStyles")
+	 * The style or type of this buttonOld (either "normal", "ghost" or "raw" -> see "ButtonStyles")
 	 */
 	style: PropTypes.oneOf([ButtonStyles.NORMAL, ButtonStyles.GHOST, ButtonStyles.RAW]),
 
@@ -98,17 +98,17 @@ ButtonBase.propTypes = {
 	iconSecond: PropTypes.node,
 
 	/**
-	 * Whether this button is an icon-button with the icon as the central element
+	 * Whether this buttonOld is an icon-buttonOld with the icon as the central element
 	 */
 	iconButton: PropTypes.bool,
 
 	/**
-	 * Whether this button is disabled and not clickable
+	 * Whether this buttonOld is disabled and not clickable
 	 */
 	disabled: PropTypes.bool,
 
 	/**
-	 * The function triggered when the button was pressed
+	 * The function triggered when the buttonOld was pressed
 	 */
 	onClick: PropTypes.func,
 

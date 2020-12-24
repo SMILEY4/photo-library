@@ -2,27 +2,32 @@
 
 * {
 
-	font-family: 'Lato', sans-serif;
-	font-size:   13px;
+	font-family:                'Lato', sans-serif;
+	font-size:                  13px;
 
-	--background-color-light-0: #f7f9fa;
-	--background-color-light-1: #ffffff;
-	--background-color-dark-0:  #525759;
-	--background-color-dark-1:  #3e4345;
+	--background-color-light-0: hsl(200, 23%, 97%);
+	--background-color-light-1: hsl(0, 0%, 100%);
 
-	--base-color-light-0:       #eceeef;
-	--base-color-light-1:       #cacbcd;
-	--base-color-light-2:       #c0c1c2;
-	--base-color-dark-0:        #676b6d;
-	--base-color-dark-1:        #7c8083;
-	--base-color-dark-2:        #898e90;
+	--background-color-dark-0:  hsl(192, 3%, 34%);
+	--background-color-dark-1:  hsl(195, 3%, 26%);
 
-	--text-color-light-0:       #c1c1c1;
-	--text-color-light-1:       #3f3f40;
-	--text-color-light-2:       #1e1e1e;
-	--text-color-dark-0:        #898e90;
-	--text-color-dark-1:        #cccccc;
-	--text-color-dark-2:        #e5e5e5;
+
+	--base-color-light-0:       hsl(220, 16%, 96%);
+	--base-color-light-1:       hsl(228, 14%, 93%);
+	--base-color-light-2:       hsl(228, 9%, 90%);
+
+	--base-color-dark-0:        hsl(195, 3%, 32%);
+	--base-color-dark-1:        hsl(195, 2%, 35%);
+	--base-color-dark-2:        hsl(195, 2%, 39%);
+
+
+	--text-color-light-0:       hsl(0, 0%, 76%);
+	--text-color-light-1:       hsl(240, 1%, 25%);
+	--text-color-light-2:       hsl(0, 0%, 12%);
+
+	--text-color-dark-0:        hsl(195, 3%, 55%);
+	--text-color-dark-1:        hsl(0, 0%, 80%);
+	--text-color-dark-2:        hsl(0, 0%, 90%);
 
 	--default-duration:         0.2s;
 }

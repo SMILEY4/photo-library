@@ -1,9 +1,9 @@
 import React from 'react';
 import {BsFillPauseFill} from "react-icons/bs";
-import {ButtonStyles as ButtonStyle} from '../components/button/ButtonBase';
-import ToggleButton from "../components/button/ToggleButton";
-import ToggleButtonBase from "../components/button/ToggleButtonBase";
-import ToggleIconButton from "../components/button/ToggleIconButton";
+import {ButtonStyles as ButtonStyle} from '../components/buttonOld/ButtonBase';
+import ToggleButton from "../components/buttonOld/ToggleButton";
+import ToggleButtonBase from "../components/buttonOld/ToggleButtonBase";
+import ToggleIconButton from "../components/buttonOld/ToggleIconButton";
 
 
 export default {

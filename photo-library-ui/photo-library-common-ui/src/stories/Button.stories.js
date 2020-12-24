@@ -1,8 +1,8 @@
 import React from 'react';
 import {BsFillPauseFill} from "react-icons/bs";
-import Button from "../components/button/Button";
-import ButtonBase, {ButtonStyles as ButtonStyle} from '../components/button/ButtonBase';
-import IconButton from "../components/button/IconButton";
+import Button from "../components/buttonOld/Button";
+import ButtonBase, {ButtonStyles as ButtonStyle} from '../components/buttonOld/ButtonBase';
+import IconButton from "../components/buttonOld/IconButton";
 
 
 export default {

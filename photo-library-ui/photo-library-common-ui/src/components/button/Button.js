@@ -1,52 +1,24 @@
-import PropTypes from 'prop-types';
-import React from "react"
-import ButtonBase, {ButtonStyles} from "./ButtonBase";
+import React from "react";
 import "./button.css"
 
-
-
-Button.propTypes = {
-
-	/**
-	 * The text to display inside the button
-	 * */
-	label: PropTypes.string.isRequired,
-
-	/**
-	 * The style or type of this button (either "normal", "ghost" or "raw" -> see "ButtonStyles")
-	 */
-	style: PropTypes.oneOf([ButtonStyles.NORMAL, ButtonStyles.GHOST, ButtonStyles.RAW]),
-
-	/**
-	 * The icon on the left side of the text
-	 */
-	icon: PropTypes.node,
-
-	/**
-	 * Whether this button is disabled and not clickable
-	 */
-	disabled: PropTypes.bool,
-
-	/**
-	 * The function triggered when the button was pressed
-	 */
-	onClick: PropTypes.func,
-
-	/**
-	 * Additional class name
-	 */
-	className: PropTypes.string
-
+export const ButtonStyles = {
+	NORMAL: "normal",
+	GHOST: "ghost",
+	RAW: "raw"
 }
 
-export default function Button({label, style, icon, disabled, onClick, className}) {
-	return <ButtonBase
-		label={label}
-		style={style}
-		icon={icon}
-		disabled={disabled}
-		onClick={onClick}
-		className={className}
-		iconButton={false}
-	/>
+export default function Button({label, buttonStyle, onClick, className}) {
+	return (
+		<div className={getClassName(className, buttonStyle)} onClick={onClick}>
+			{label}
+		</div>
+	)
+
+
+	function getClassName(addClassName) {
+		const style = buttonStyle ? buttonStyle : ButtonStyles.NORMAL
+		return "button"
+			+ " button-" + style
+			+ (addClassName ? " " + addClassName : "")
+	}
 }

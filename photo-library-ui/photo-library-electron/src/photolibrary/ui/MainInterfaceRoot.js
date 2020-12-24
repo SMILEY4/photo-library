@@ -1,30 +1,38 @@
 import React, {useEffect, useState} from "react"
 import {requestApplicationProjectState} from "../app/PhotoLibraryApi";
-import WelcomeScreen from "./welcome/WelcomeScreen";
+import "photo-library-common-ui/src/components/basestyle.css"
+import {sendSwitchToMainScreen, sendSwitchToWelcomeScreen} from "../app/AppMessages";
 import MainScreen from "./main/MainScreen";
+import WelcomeScreen from "./welcome/WelcomeScreen";
+
+const {ipcRenderer} = window.require('electron');
+
 
 export default function MainInterfaceRoot({}) {
 
-	const [appProjectState, setAppProjectState] = useState(null)
+	const [theme] = useState("theme-light")
+	const [appState, setAppState] = useState(null)
+	useEffect(() => setAppState(requestApplicationProjectState()), [])
 
-	useEffect(() => setAppProjectState(requestApplicationProjectState()), [])
-
-	if (appProjectState) {
-		return appProjectState.state === "PROJECT-OPEN"
-			? <MainScreen onProjectClosed={openWelcomeScreen}/>
-			: <WelcomeScreen recentlyUsed={appProjectState.recentlyUsed} onProjectOpened={openProjectScreen}/>
+	if (appState) {
+		return appState.state === "PROJECT-OPEN"
+			? <MainScreen onProjectClosed={onSwitchToWelcome} theme={theme}/>
+			: <WelcomeScreen recentlyUsed={appState.recentlyUsed} onProjectOpened={onSwitchToMain} theme={theme}/>
 	} else {
 		return null
 	}
 
 
-	function openWelcomeScreen() {
-		setAppProjectState(requestApplicationProjectState())
+	function onSwitchToWelcome() {
+		sendSwitchToWelcomeScreen(ipcRenderer)
+		setAppState(requestApplicationProjectState())
 	}
 
 
-	function openProjectScreen() {
-		setAppProjectState({state: "PROJECT-OPEN"})
+	function onSwitchToMain() {
+		sendSwitchToMainScreen(ipcRenderer)
+		setAppState({state: "PROJECT-OPEN"})
 	}
 
 }
+

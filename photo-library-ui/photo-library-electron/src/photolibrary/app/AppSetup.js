@@ -1,3 +1,5 @@
+const {setupMessageHandling} = require("./AppMessageHandler");
+const {setupPopupHandling} = require("./PopupHandling");
 const {BrowserWindow} = require('electron');
 
 const DEV_INTERFACE_LOCATION = "http://localhost:3000";
@@ -8,18 +10,21 @@ let initialWindow;
 
 function createInitialWindow(isInDevMode) {
 
-	initialWindow = buildWindow()
+	initialWindow = buildMainWindow()
 	loadInterface(isInDevMode)
 
 	initialWindow.once('ready-to-show', () => initialWindow.show())
 	initialWindow.on('closed', () => initialWindow = null)
+
+	setupPopupHandling(initialWindow)
+	setupMessageHandling(initialWindow)
 }
 
 
 exports.createInitialWindow = createInitialWindow;
 
 
-function buildWindow() {
+function buildMainWindow() {
 	return new BrowserWindow({
 		title: "SimpleLib - (Lukas Ruegner, 2020)",
 		width: 650,
@@ -29,6 +34,7 @@ function buildWindow() {
 		show: false,
 		webPreferences: {
 			nodeIntegration: true,
+			nativeWindowOpen: true
 		}
 	})
 }

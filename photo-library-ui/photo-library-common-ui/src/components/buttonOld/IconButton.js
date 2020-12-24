@@ -21,12 +21,12 @@ export default function IconButton({label, style, icon, disabled, onClick, class
 IconButton.propTypes = {
 
 	/**
-	 * The text to display inside the button
+	 * The text to display inside the buttonOld
 	 * */
 	label: PropTypes.string,
 
 	/**
-	 * The style or type of this button (either "normal", "ghost" or "raw" -> see "ButtonStyles")
+	 * The style or type of this buttonOld (either "normal", "ghost" or "raw" -> see "ButtonStyles")
 	 */
 	style: PropTypes.oneOf([ButtonStyles.NORMAL, ButtonStyles.GHOST, ButtonStyles.RAW]),
 
@@ -36,12 +36,12 @@ IconButton.propTypes = {
 	icon: PropTypes.node,
 
 	/**
-	 * Whether this button is disabled and not clickable
+	 * Whether this buttonOld is disabled and not clickable
 	 */
 	disabled: PropTypes.bool,
 
 	/**
-	 * The function triggered when the button was pressed
+	 * The function triggered when the buttonOld was pressed
 	 */
 	onClick: PropTypes.func,
 

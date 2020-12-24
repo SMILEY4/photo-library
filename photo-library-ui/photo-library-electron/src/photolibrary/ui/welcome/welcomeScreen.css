@@ -4,7 +4,8 @@
 	display:               grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows:    1fr;
-	cursor: default;
+	cursor:                default;
+	color: var(--text-color-1)
 }
 
 
@@ -29,20 +30,20 @@
 }
 
 .icon-image {
-	margin: 25%;
+	margin:            25%;
 	background-repeat: no-repeat;
 	background-size:   contain;
 }
 
 .icon-image:after {
-	content: "";
-	display: block;
+	content:        "";
+	display:        block;
 	padding-bottom: 100%;
 }
 
 
 .welcome-content {
-	background-color:      #ffffff;
+	background-color:      var(--background-color-1);
 	display:               grid;
 	grid-template-columns: 1fr;
 	grid-template-rows:    1fr 1fr 1fr;
@@ -63,7 +64,7 @@
 
 
 .subtitle {
-	color:       #868686;
+	color:       var(--text-color-0);
 	font-size:   0.8em;
 	font-weight: bold;
 }
@@ -75,29 +76,6 @@
 	align-items:     center;
 	justify-content: center;
 	gap:             10px;
-}
-
-.button-section > * {
-	background-color:    #f4f5f7;
-	color:               #3f3f40;
-	border-radius:       5px;
-	padding:             0.5em;
-
-	cursor:              pointer;
-	-webkit-user-select: none;
-	-moz-user-select:    none;
-	-ms-user-select:     none;
-	user-select:         none;
-}
-
-.button-section > *:hover {
-	background-color: #ebecf0;
-	color:            #1e1e1e;
-}
-
-.button-section > *:active {
-	background-color: #e2e3e7;
-	color:            #1e1e1e;
 }
 
 
@@ -116,33 +94,8 @@
 
 .recent-content > *:first-child {
 	font-weight: bold;
-	color:       #1e1e1e;
 }
 
 .recent-content > *:not(:first-child) {
-
-	margin-left:         0.5em;
-	margin-top:          1px;
-
-	color:               #3f3f40;
-	text-decoration:     underline;
-
-	cursor:              pointer;
-	-webkit-user-select: none;
-	-moz-user-select:    none;
-	-ms-user-select:     none;
-	user-select:         none;
-
-	border-radius:       5px;
-	padding:             0.5em;
-}
-
-.recent-content > *:not(:first-child):hover {
-	background-color: #ebecf0;
-	color:            #1e1e1e;
-}
-
-.recent-content > *:not(:first-child):active {
-	background-color: #e2e3e7;
-	color:            #1e1e1e;
+	margin-top: 1px;
 }

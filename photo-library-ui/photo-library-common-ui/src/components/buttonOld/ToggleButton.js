@@ -6,7 +6,7 @@ import ToggleButtonBase from "./ToggleButtonBase";
 
 
 
-export default function ToggleIconButton({label, labelSelected, style, icon, iconSelected, disabled, onToggle, className}) {
+export default function ToggleButton({label, labelSelected, style, icon, iconSelected, disabled, onToggle, className}) {
 	return <ToggleButtonBase
 		label={label}
 		labelSelected={labelSelected}
@@ -16,25 +16,25 @@ export default function ToggleIconButton({label, labelSelected, style, icon, ico
 		disabled={disabled}
 		onToggle={onToggle}
 		className={className}
-		iconButton={true}
+		iconButton={false}
 	/>
 }
 
-ToggleIconButton.propTypes = {
+ToggleButton.propTypes = {
 
 
 	/**
-	 * The text to display inside the button
+	 * The text to display inside the buttonOld
 	 * */
 	label: PropTypes.string,
 
 	/**
-	 * The text to display when this button is toggled/selected
+	 * The text to display when this buttonOld is toggled/selected
 	 */
 	labelSelected: PropTypes.string,
 
 	/**
-	 * The style or type of this button (either "normal", "ghost" or "raw" -> see "ButtonStyles")
+	 * The style or type of this buttonOld (either "normal", "ghost" or "raw" -> see "ButtonStyles")
 	 */
 	style: PropTypes.oneOf([ButtonStyles.NORMAL, ButtonStyles.GHOST, ButtonStyles.RAW]),
 
@@ -44,17 +44,17 @@ ToggleIconButton.propTypes = {
 	icon: PropTypes.node,
 
 	/**
-	 * The icon to display when this button is toggled/selected
+	 * The icon to display when this buttonOld is toggled/selected
 	 */
 	iconSelected: PropTypes.node,
 
 	/**
-	 * Whether this button is disabled and not clickable
+	 * Whether this buttonOld is disabled and not clickable
 	 */
 	disabled: PropTypes.bool,
 
 	/**
-	 * The function triggered when the state of the button was changed
+	 * The function triggered when the state of the buttonOld was changed
 	 */
 	onToggle: PropTypes.func,
 
