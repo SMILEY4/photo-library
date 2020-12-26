@@ -1,8 +1,11 @@
 import "../src/components/basestyle.css"
+import React from "react";
 
+export const decorators = [(Story) => <div style={{ gap: '1em' }}><Story/></div>];
 
 export const parameters = {
   actions: {argTypesRegex: "^on[A-Z].*"},
+  layout: 'centered',
   themes: [
     {
       name: 'light',
@@ -17,24 +20,17 @@ export const parameters = {
     }
   ],
   backgrounds: {
-    default: 'light-0',
+    default: 'background-0',
     values: [
       {
-        name: 'light-0',
-        value: 'var(--background-color-light-0)',
+        name: 'background-0',
+        value: 'var(--background-color-0)'
       },
       {
-        name: 'light-1',
-        value: 'var(--background-color-light-1)',
-      },
-      {
-        name: 'dark-0',
-        value: 'var(--background-color-dark-0)',
-      },
-      {
-        name: 'dark-1',
-        value: 'var(--background-color-dark-1)',
+        name: 'background-1',
+        value: 'var(--background-color-1)'
       }
+
     ]
   }
 }

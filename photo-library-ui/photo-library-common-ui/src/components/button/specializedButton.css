@@ -1,0 +1,37 @@
+.specialized-button {
+	position:        relative;
+	border:          1px solid transparent;
+	background-clip: padding-box;
+}
+
+
+.specialized-button::after {
+	position:      absolute;
+	top:           -1px;
+	bottom:        -1px;
+	left:          -1px;
+	right:         -1px;
+	content:       '';
+	z-index:       -1;
+	border-radius: 5px;
+}
+
+
+.specialized-button-info::after {
+	background: linear-gradient(155deg, #7bdbff, #4855ff);
+}
+
+.specialized-button-valid::after {
+	background: linear-gradient(155deg, #a8e063, #56ab2f);
+}
+
+.specialized-button-error::after {
+	background: linear-gradient(155deg, #ff512f, #dd2476);
+}
+
+.specialized-button-warn::after {
+	background: linear-gradient(155deg, #f6d365, #fda085);
+}
+
+
+
