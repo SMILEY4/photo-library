@@ -5,7 +5,6 @@ import SCColorStrip from "./utilis/SCColorStrip";
 
 export default {
 	title: 'Miscellaneous/Colors',
-	component: Button,
 }
 
 export const All = () => (

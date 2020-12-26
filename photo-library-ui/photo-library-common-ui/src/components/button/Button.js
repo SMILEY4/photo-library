@@ -7,10 +7,10 @@ export const ButtonStyles = {
 	RAW: "raw"
 }
 
-export default function Button({label, disabled, buttonStyle, onClick, className}) {
+export default function Button({label, disabled, buttonStyle, onClick, className, small}) {
 	return (
-		<div className={getClassName(className, buttonStyle)} onClick={onClick}>
-				{label}
+		<div className={getClassName(className, buttonStyle)} onClick={() => (!disabled && onClick ? onClick() : null)}>
+			{label}
 		</div>
 	)
 
@@ -21,5 +21,6 @@ export default function Button({label, disabled, buttonStyle, onClick, className
 			+ " button-" + style
 			+ (disabled ? " button-disabled" : "")
 			+ (addClassName ? " " + addClassName : "")
+			+ (small ? " button-small" : "")
 	}
 }

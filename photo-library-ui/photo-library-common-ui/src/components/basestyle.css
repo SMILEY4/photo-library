@@ -2,9 +2,8 @@
 
 * {
 
-	font-family:                'Lato', sans-serif;
-	font-size:                  13px;
-
+	--font-size-base: 13px;
+	--font-size-small: 12px;
 
 	--background-color-light-0: hsl(228, 23%, 94%);
 	--background-color-light-1: hsl(228, 0%, 100%);
@@ -32,6 +31,9 @@
 	--text-color-dark-2:        hsl(0, 0%, 90%);
 
 	--default-duration:         0.2s;
+
+	font-family:                'Lato', sans-serif;
+	font-size:                  var(--font-size-base);
 }
 
 

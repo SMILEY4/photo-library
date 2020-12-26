@@ -12,6 +12,11 @@
 	color:               var(--text-color-1);
 }
 
+.button-small {
+	padding: 0.1em 0.2em;
+	font-size: var(--font-size-small);
+}
+
 .button-disabled {
 	color: var(--text-color-0);
 }
@@ -38,4 +43,8 @@
 
 .button-raw {
 	padding: calc(0.5em + 1px);
+}
+
+.button-raw.button-small {
+	padding: calc(0.1em + 1px) calc(0.2em + 1px);
 }

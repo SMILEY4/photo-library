@@ -10,9 +10,9 @@ export const SpecialisationType = {
 	INFO: "info"
 }
 
-export default function Button({label, disabled, type, onClick, className}) {
+export default function SpecializedButton({label, disabled, type, onClick, className}) {
 	return (
-		<div className={getClassName(className)} onClick={onClick}>
+		<div className={getClassName(className)} onClick={() => (!disabled && onClick ? onClick() : null)}>
 			{label}
 		</div>
 	)
