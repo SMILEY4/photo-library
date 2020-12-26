@@ -1,23 +1,23 @@
 import React, {useState} from "react"
 import "./welcomeScreen.css"
 import Button, {ButtonStyles} from "photo-library-common-ui/src/components/button/Button";
-import {SubWindow} from "photo-library-common-ui/src/components/popup/SubWindow";
+import Modal from "photo-library-common-ui/src/components/popup/Modal";
 
 export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 
 	const pathHero = "/welcomeHero.jpg"
 	const pathIcon = "/simpleLib.png"
-	const [showCreateDialog, setShowCreateDialog] = useState(false)
+	const [showDialogCreateNew, setShowDialogCreateNew] = useState(false)
 
 	return (
 		<div className={"welcome-root " + theme}>
-			{renderConfirmCreateDialog(showCreateDialog)}
 			{renderSectionHero()}
 			<div className="welcome-content">
 				{renderSectionTitle()}
 				{renderSectionButtons()}
 				{renderSectionRecent(recentlyUsed)}
 			</div>
+			{renderDialogCreateNew(showDialogCreateNew)}
 		</div>
 	)
 
@@ -47,7 +47,7 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 	function renderSectionButtons() {
 		return (
 			<div className="button-section">
-				<Button label="Create New Library" onClick={() => setShowCreateDialog(true)}/>
+				<Button label="Create New Library" onClick={() => setShowDialogCreateNew(true)}/>
 				<Button label="Open Library" onClick={onOpen}/>
 			</div>
 		)
@@ -75,23 +75,19 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 	}
 
 
-	function renderConfirmCreateDialog(show) {
-		if (show) {
-			return (
-				<SubWindow windowId="welcome.confirm.create"
-						   onClose={() => setShowCreateDialog(false)}
-						   closeOnUnmount={false}>
-					<h2>
-						Confirm Create New
-					</h2>
-					<div onClick={onCreateNew}>
-						Confirm
+	function renderDialogCreateNew(show) {
+		return (
+			<Modal show={showDialogCreateNew}
+				   title="Create New Library"
+				   onClose={() => setShowDialogCreateNew(false)}>
+				<div className="dir-chooser">
+					<div className={"dir-label"}>
+						Choose Directory
 					</div>
-				</SubWindow>
-			)
-		} else {
-			return null
-		}
+					<Button className="btn-choose-dir" label="Browse" buttonStyle={ButtonStyles.NORMAL}/>
+				</div>
+			</Modal>
+		)
 	}
 
 

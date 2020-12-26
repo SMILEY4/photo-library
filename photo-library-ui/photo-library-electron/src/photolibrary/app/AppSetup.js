@@ -1,5 +1,4 @@
 const {setupMessageHandling} = require("./AppMessageHandler");
-const {setupPopupHandling} = require("./PopupHandling");
 const {BrowserWindow} = require('electron');
 
 const DEV_INTERFACE_LOCATION = "http://localhost:3000";
@@ -16,7 +15,6 @@ function createInitialWindow(isInDevMode) {
 	initialWindow.once('ready-to-show', () => initialWindow.show())
 	initialWindow.on('closed', () => initialWindow = null)
 
-	setupPopupHandling(initialWindow)
 	setupMessageHandling(initialWindow)
 }
 

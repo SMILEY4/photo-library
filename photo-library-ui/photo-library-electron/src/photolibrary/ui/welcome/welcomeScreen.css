@@ -5,7 +5,7 @@
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows:    1fr;
 	cursor:                default;
-	color: var(--text-color-1)
+	color:                 var(--text-color-1)
 }
 
 
@@ -98,4 +98,27 @@
 
 .recent-content > *:not(:first-child) {
 	margin-top: 1px;
+}
+
+
+.dir-chooser {
+	display:        flex;
+	flex-direction: row;
+	border-radius: 5px;
+	background-color:      var(--base-color-0);
+}
+
+.dir-label {
+	margin:      5px 0 5px 5px;
+	flex-grow:   2;
+	min-width:   10em;
+	display:     flex;
+	align-items: center;
+}
+
+.btn-choose-dir {
+	margin:    5px;
+	flex-grow: 0;
+	padding:   0.25em !important;
+	border: 1px solid var(--text-color-0)
 }

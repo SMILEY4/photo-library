@@ -5,16 +5,16 @@
 	font-family:                'Lato', sans-serif;
 	font-size:                  13px;
 
-	--background-color-light-0: hsl(200, 23%, 97%);
+	--background-color-light-0: hsl(200, 23%, 95%);
 	--background-color-light-1: hsl(0, 0%, 100%);
 
 	--background-color-dark-0:  hsl(192, 3%, 34%);
 	--background-color-dark-1:  hsl(195, 3%, 26%);
 
 
-	--base-color-light-0:       hsl(220, 16%, 96%);
-	--base-color-light-1:       hsl(228, 14%, 93%);
-	--base-color-light-2:       hsl(228, 9%, 90%);
+	--base-color-light-0:       hsl(220, 16%, 90%);
+	--base-color-light-1:       hsl(228, 14%, 87%);
+	--base-color-light-2:       hsl(228, 9%, 84%);
 
 	--base-color-dark-0:        hsl(195, 3%, 32%);
 	--base-color-dark-1:        hsl(195, 2%, 35%);
