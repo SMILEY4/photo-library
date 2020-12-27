@@ -1,7 +1,7 @@
 .sc-list {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	display:          flex;
+	flex-direction:   column;
+	align-items:      flex-start;
 }
 
 .sc-list > * {
@@ -9,9 +9,9 @@
 }
 
 .sc-column {
-	display: flex;
+	display:        flex;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items:    flex-start;
 }
 
 .sc-column > * {
@@ -19,12 +19,13 @@
 }
 
 .sc-color-strip {
-	display: flex;
-	flex-direction: row;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+	display:          flex;
+	flex-direction:   row;
+	box-shadow:       5px 5px 10px rgba(0, 0, 0, 0.5);
 	background-color: transparent;
 }
+
 .sc-color-strip > * {
-	width: 100px;
+	width:  100px;
 	height: 100px;
 }

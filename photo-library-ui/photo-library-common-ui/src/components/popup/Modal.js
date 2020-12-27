@@ -1,35 +1,63 @@
 import React from "react";
-import {CgClose} from "react-icons/cg";
 import "./modal.css"
-import Button, {ButtonStyles} from "../button/Button";
+import ModalBase from "./ModalBase";
+import {CgClose} from "react-icons/cg";
+import Button from "../button/Button";
+import SpecializedButton, {SpecialisationType} from "../button/SpecializedButton";
 
 // https://reactgo.com/react-modal-tutorial/
-export default function Modal({show, onClose, title, className, children}) {
-	if (!show) {
-		return null;
-	}
+export default function Modal({show, addCloseButton, onClose, footerActions, className, children}) {
 	return (
-		<div className="modal-overlay">
-			<div className={"modal" + (className ? " " + className : "")}>
-
-				<div className="modal-top">
-					<div className="modal-title">
-						{title}
-					</div>
-					<CgClose onClick={onClose}/>
+		<ModalBase show={show} className={className}>
+			<div className="modal-header">
+				<div className="modal-title">
+					Modal Header
 				</div>
-
-				<div className="modal-content">
-					{children}
-				</div>
-
-				<div className="modal-bottom">
-					<Button label="Accept" buttonStyle={ButtonStyles.NORMAL}/>
-				</div>
-
+				{renderCloseButton(addCloseButton)}
 			</div>
-		</div>
+			<div className="modal-body">
+				{children}
+			</div>
+			<div className="modal-footer">
+				{
+					footerActions.map(action => {
+						if (action.specialization) {
+							return (
+								<SpecializedButton
+									type={SpecialisationType.ERROR}
+									label="Info"/>
+							)
+							// return (
+							// 	<SpecializedButton
+							// 		label={action.label}
+							// 		type={action.specialization}
+							// 		disabled={action.disabled}
+							// 		onClick={action.onClick}
+							// 	/>
+							// )
+						} else {
+							return (
+								<Button
+									label={action.label}
+									disabled={action.disabled}
+									onClick={action.onClick}
+									buttonStyle={action.buttonStyle}
+								/>
+							)
+						}
+					})
+				}
+			</div>
+		</ModalBase>
 	)
 
+
+	function renderCloseButton(addButton) {
+		if (addButton) { // TODO: make real/generic icon-button
+			return <CgClose onClick={() => onClose ? onClose() : null} className="modal-button-close"/>
+		} else {
+			return null
+		}
+	}
 
 }

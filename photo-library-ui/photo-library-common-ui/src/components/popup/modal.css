@@ -1,72 +1,43 @@
-.modal-overlay {
-
-	position:        fixed;
-	top:             0;
-	left:            0;
-	width:           100%;
-	height:          100%;
-
-	background:      rgba(0, 0, 0, 0.3);
-
-	display:         flex;
-	justify-content: center;
-	align-items:     center;
-}
-
-.modal {
-	position:         relative;
-	background-color: var(--background-color-0);
-	border:           1px solid var(--text-color-1);
-	border-radius:    5px;
-	box-shadow:       5px 5px 10px rgba(0, 0, 0, 0.5);
-	box-sizing:       border-box;
-	color:            var(--text-color-1);
-	overflow:         hidden;
-}
-
-.modal-top {
-	display:          flex;
-	flex-direction:   row;
-	align-items:      center;
-	justify-content:  space-between;
-	gap:              1em;
-	padding:          10px 10px 1em;
+.modal-header {
+	padding:          1em;
+	margin-bottom:    2px;
 	background-color: var(--background-color-1);
-}
 
-.modal-top > svg {
-	width:         1.5em;
-	height:        1.5em;
-	padding:       2px;
-	cursor:        pointer;
-	color:         var(--text-color-1);
-	border-radius: 5px;
-}
-
-.modal-top > svg:hover {
-	background-color: var(--base-color-1);
-	color:            var(--text-color-2);
-}
-
-.modal-top > svg:active {
-	background-color: var(--base-color-2);
-	color:            var(--text-color-2);
+	display:          flex;
+	justify-content:  space-between;
+	align-items:      center;
 }
 
 
 .modal-title {
-	font-weight: bold;
-	font-size:   1.25em;
 }
 
-.modal-content {
-	margin: 1em 10px;
+
+.modal-button-close {
+	color:         var(--text-color-1);
+	padding:       0.3em;
+	border-radius: 5px;
 }
 
-.modal-bottom {
-	padding:          10px;
-	display:          flex;
-	flex-direction:   row-reverse;
-	gap:              10px;
+.modal-button-close:hover {
+	background-color: var(--base-color-1);
+	color:            var(--text-color-2);
+}
+
+.modal-button-close:active {
+	background-color: var(--base-color-2);
+	color:            var(--text-color-2);
+}
+
+.modal-body {
 	background-color: var(--background-color-1);
+	padding:          1em;
+}
+
+
+.modal-footer {
+	display:         flex;
+	justify-content: flex-end;
+	padding:         8px 1em;
+	gap:             8px;
 }

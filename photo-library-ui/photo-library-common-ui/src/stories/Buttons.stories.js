@@ -17,7 +17,6 @@ export const All = () => (
 			<SpecializedButton onClick={action("Click")} type={SpecialisationType.VALID} label="Valid Button"/>
 			<SpecializedButton onClick={action("Click")} type={SpecialisationType.ERROR} label="Error Button"/>
 			<SpecializedButton onClick={action("Click")} type={SpecialisationType.WARN} label="Warn Button"/>
-			<SpecializedButton onClick={action("Click")} type={SpecialisationType.INFO} small={true} label="Info Small"/>
 		</SCList>
 		<SCList>
 			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} label="First Button"/>

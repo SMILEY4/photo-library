@@ -2,8 +2,8 @@
 
 * {
 
-	--font-size-base: 13px;
-	--font-size-small: 12px;
+	--font-size-base:           13px;
+	--font-size-small:          12px;
 
 	--background-color-light-0: hsl(228, 23%, 94%);
 	--background-color-light-1: hsl(228, 0%, 100%);
@@ -30,6 +30,14 @@
 	--text-color-dark-1:        hsl(0, 0%, 80%);
 	--text-color-dark-2:        hsl(0, 0%, 90%);
 
+	--overlay-color-light:      rgba(0, 0, 0, 0.3);
+	--overlay-color-dark:       rgba(128, 128, 128, 0.3);
+
+	--gradient-info:            linear-gradient(155deg, #7bdbff, #4855ff);
+	--gradient-success:         linear-gradient(155deg, #a8e063, #56ab2f);
+	--gradient-error:           linear-gradient(155deg, #ff512f, #dd2476);
+	--gradient-warn:            linear-gradient(155deg, #f6d365, #fda085);
+
 	--default-duration:         0.2s;
 
 	font-family:                'Lato', sans-serif;
@@ -47,6 +55,7 @@
 	--text-color-0:       var(--text-color-dark-0);
 	--text-color-1:       var(--text-color-dark-1);
 	--text-color-2:       var(--text-color-dark-2);
+	--overlay-color:      var(--overlay-color-dark);
 }
 
 
@@ -60,6 +69,7 @@
 	--text-color-0:       var(--text-color-light-0);
 	--text-color-1:       var(--text-color-light-1);
 	--text-color-2:       var(--text-color-light-2);
+	--overlay-color:      var(--overlay-color-light);
 }
 
 

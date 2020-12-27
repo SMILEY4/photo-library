@@ -15,7 +15,6 @@ export const All = () => (
 			"var(--base-color-0)",
 			"var(--base-color-1)",
 			"var(--base-color-2)",
-			""
 		]}/>
 		<SCColorStrip colors={[
 			"var(--text-color-0)",
@@ -23,10 +22,13 @@ export const All = () => (
 			"var(--text-color-2)"
 		]}/>
 		<SCColorStrip colors={[
-			"linear-gradient(155deg, #7bdbff, #4855ff)",
-			"linear-gradient(155deg, #a8e063, #56ab2f)",
-			"linear-gradient(155deg, #ff512f, #dd2476)",
-			"linear-gradient(155deg, #f6d365, #fda085)"
+			"var(gradient-info)",
+			"var(gradient-success)",
+			"var(gradient-error)",
+			"var(gradient-warn)"
+		]}/>
+		<SCColorStrip colors={[
+			"var(--overlay-color)"
 		]}/>
 	</SCList>
 )
