@@ -8,11 +8,22 @@
 	flex-direction:   row;
 	align-items:      center;
 	gap:              1em;
-	color:            var(--text-color-1)
 }
 
+.text-field > svg {
+	fill: var(--text-color-1);
+	stroke: var(--text-color-1);
+}
+
+
+.text-field:focus-within > svg {
+	fill: var(--text-color-2);
+	stroke: var(--text-color-2);
+}
+
+
 .text-field-disabled {
-	color: var(--text-color-0)
+	color: var(--text-color-0);
 }
 
 .text-field-outlined {

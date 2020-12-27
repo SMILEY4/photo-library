@@ -1,9 +1,10 @@
 import React from "react";
-import Modal from "../components/popup/Modal";
-import ModalBase from "../components/popup/ModalBase";
+import Modal from "../components/modals/Modal";
+import ModalBase from "../components/modals/ModalBase";
 import {action} from "@storybook/addon-actions";
 import {ButtonStyles} from "../components/button/Button";
 import {SpecialisationType} from "../components/button/SpecializedButton";
+import {AiOutlineInfoCircle} from "react-icons/ai";
 
 export default {
 	title: 'Modal',
@@ -19,6 +20,7 @@ export const Base = () => (
 
 export const Simple = () => (
 	<Modal show={true}
+		   icon={<AiOutlineInfoCircle/>}
 		   addCloseButton={true}
 		   onClose={action("Close")}
 		   footerActions={[

@@ -5,10 +5,14 @@ import {CgClose} from "react-icons/cg";
 import Button from "../button/Button";
 import SpecializedButton from "../button/SpecializedButton";
 
-export default function Modal({show, addCloseButton, onClose, footerActions, className, children}) {
+export default function Modal({show, icon, addCloseButton, onClose, footerActions, className, children}) {
 	return (
 		<ModalBase show={show} className={className}>
 			<div className="modal-header">
+				{ icon
+					? <div className="modal-icon">{icon}</div>
+					: null
+				}
 				<h3 className="modal-title">
 					Modal Header
 				</h3>

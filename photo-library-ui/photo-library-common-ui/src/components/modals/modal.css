@@ -4,12 +4,25 @@
 	background-color: var(--background-color-1);
 
 	display:          flex;
-	justify-content:  space-between;
 	align-items:      center;
+	justify-content:  flex-start;
 }
 
 
+.modal-icon {
+	display:     flex;
+	align-items: center;
+}
+
+.modal-icon > svg {
+	width:        16px;
+	height:       16px;
+	margin-right: 4px;
+	fill:         var(--text-color-2);
+}
+
 .modal-title {
+	margin-right: auto;
 }
 
 
@@ -19,15 +32,21 @@
 	border-radius: 5px;
 }
 
-.modal-button-close:hover {
+.modal-button-close:hover,
+.modal-button-close:hover > * {
 	background-color: var(--base-color-1);
-	color:            var(--text-color-2);
+	fill:             var(--text-color-2);
+	stroke:           var(--text-color-2);
 }
 
-.modal-button-close:active {
+.modal-button-close:active,
+.modal-button-close:active > * {
 	background-color: var(--base-color-2);
-	color:            var(--text-color-2);
+	fill:             var(--text-color-2);
+	stroke:           var(--text-color-2);
 }
+
+
 
 .modal-body {
 	background-color: var(--background-color-1);
