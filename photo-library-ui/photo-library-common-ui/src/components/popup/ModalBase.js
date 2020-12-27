@@ -8,7 +8,7 @@ export default function ModalBase({show, className, children}) {
 	}
 	return (
 		<div className="modal-overlay">
-			<div className={"modal" + (className ? " " + className : "")}>
+			<div className={"modal with-shadow-2" + (className ? " " + className : "")}>
 				{children}
 			</div>
 		</div>

@@ -3,9 +3,8 @@ import "./modal.css"
 import ModalBase from "./ModalBase";
 import {CgClose} from "react-icons/cg";
 import Button from "../button/Button";
-import SpecializedButton, {SpecialisationType} from "../button/SpecializedButton";
+import SpecializedButton from "../button/SpecializedButton";
 
-// https://reactgo.com/react-modal-tutorial/
 export default function Modal({show, addCloseButton, onClose, footerActions, className, children}) {
 	return (
 		<ModalBase show={show} className={className}>
@@ -24,17 +23,12 @@ export default function Modal({show, addCloseButton, onClose, footerActions, cla
 						if (action.specialization) {
 							return (
 								<SpecializedButton
-									type={SpecialisationType.ERROR}
-									label="Info"/>
+									label={action.label}
+									type={action.specialization}
+									disabled={action.disabled}
+									onClick={action.onClick}
+								/>
 							)
-							// return (
-							// 	<SpecializedButton
-							// 		label={action.label}
-							// 		type={action.specialization}
-							// 		disabled={action.disabled}
-							// 		onClick={action.onClick}
-							// 	/>
-							// )
 						} else {
 							return (
 								<Button

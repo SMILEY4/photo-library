@@ -1,6 +1,7 @@
 import React from "react";
-import "./specializedButton.css"
 import Button, {ButtonStyles} from "./Button";
+import GradientBorderWrapper from "../misc/GradientBorderWrapper";
+import "./specializedButton.css"
 
 export const SpecialisationType = {
 	ERROR: "error",
@@ -11,7 +12,7 @@ export const SpecialisationType = {
 
 export default function SpecializedButton({label, disabled, type, onClick, className}) {
 	return (
-		<div className={getClassName(className)}>
+		<GradientBorderWrapper className={getClassName(className)}>
 			<Button
 				label={label}
 				buttonStyle={ButtonStyles.NORMAL}
@@ -19,7 +20,7 @@ export default function SpecializedButton({label, disabled, type, onClick, class
 				onClick={onClick}
 				className={"wrapped-button"}
 			/>
-		</div>
+		</GradientBorderWrapper>
 	)
 
 

@@ -1,15 +1,3 @@
-.specialized-button {
-	position:        relative;
-	padding: 1px;
-	background-clip: padding-box;
-	border-radius:   5px;
-}
-
-.specialized-button > .button {
-	border:        none !important;
-	border-radius: 4px !important;
-}
-
 .specialized-button-info {
 	background: var(--gradient-info);
 }
@@ -25,6 +13,3 @@
 .specialized-button-warn {
 	background: var(--gradient-warn);
 }
-
-
-

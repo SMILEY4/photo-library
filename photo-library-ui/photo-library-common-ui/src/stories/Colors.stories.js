@@ -22,10 +22,10 @@ export const All = () => (
 			"var(--text-color-2)"
 		]}/>
 		<SCColorStrip colors={[
-			"var(gradient-info)",
-			"var(gradient-success)",
-			"var(gradient-error)",
-			"var(gradient-warn)"
+			"var(--gradient-info)",
+			"var(--gradient-success)",
+			"var(--gradient-error)",
+			"var(--gradient-warn)"
 		]}/>
 		<SCColorStrip colors={[
 			"var(--overlay-color)"
