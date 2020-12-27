@@ -1,4 +1,10 @@
-.modal-header {
+.dialog {
+	background-color: var(--background-color-0);
+	border-radius:    5px;
+	color:            var(--text-color-1);
+}
+
+.dialog-header {
 	padding:          1em 1em 1em 1em;
 	margin-bottom:    2px;
 	background-color: var(--background-color-1);
@@ -9,46 +15,45 @@
 }
 
 
-.modal-icon {
+.dialog-icon {
 	display:     flex;
 	align-items: center;
 }
 
-.modal-icon > svg {
+.dialog-icon > svg {
 	width:        16px;
 	height:       16px;
 	margin-right: 4px;
 	fill:         var(--text-color-2);
 }
 
-.modal-title {
+.dialog-title {
 	margin-right: auto;
 }
 
 
-.modal-button-close {
+.dialog-button-close {
 	color:         var(--text-color-1);
 	padding:       0.3em;
 	border-radius: 5px;
 }
 
-.modal-button-close:hover,
-.modal-button-close:hover > * {
+.dialog-button-close:hover,
+.dialog-button-close:hover > * {
 	background-color: var(--base-color-1);
 	fill:             var(--text-color-2);
 	stroke:           var(--text-color-2);
 }
 
-.modal-button-close:active,
-.modal-button-close:active > * {
+.dialog-button-close:active,
+.dialog-button-close:active > * {
 	background-color: var(--base-color-2);
 	fill:             var(--text-color-2);
 	stroke:           var(--text-color-2);
 }
 
 
-
-.modal-body {
+.dialog-body {
 	background-color: var(--background-color-1);
 	padding:          1em 2em;
 	min-height:       4em;
@@ -57,7 +62,7 @@
 }
 
 
-.modal-footer {
+.dialog-footer {
 	display:         flex;
 	justify-content: flex-end;
 	padding:         1em 2em;

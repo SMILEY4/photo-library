@@ -11,7 +11,7 @@
 	--base-color-light-3:       hsl(228, 6%, 80%);
 
 	--text-color-light-0:       hsl(0, 0%, 65%);
-	--text-color-light-1:       hsl(0, 1%, 30%);
+	--text-color-light-1:       hsl(0, 1%, 25%);
 	--text-color-light-2:       hsl(0, 0%, 12%);
 
 
@@ -30,10 +30,20 @@
 	--overlay-color-light:      rgba(0, 0, 0, 0.3);
 	--overlay-color-dark:       rgba(128, 128, 128, 0.3);
 
-	--gradient-info:            linear-gradient(155deg, #7bdbff, #4855ff);
-	--gradient-success:         linear-gradient(155deg, #a8e063, #56ab2f);
-	--gradient-error:           linear-gradient(155deg, #ff512f, #dd2476);
-	--gradient-warn:            linear-gradient(155deg, #f6d365, #fda085);
+	--gradient-info-0:          linear-gradient(155deg, #7bdbff, #4855ff);
+	--gradient-success-0:       linear-gradient(155deg, #a8e063, #56ab2f);
+	--gradient-error-0:         linear-gradient(155deg, #ff512f, #dd2476);
+	--gradient-warn-0:          linear-gradient(155deg, #f6d365, #fda085);
+
+	--gradient-info-light-1:    linear-gradient(155deg, hsl(196, 100%, 90%), hsl(236, 100%, 90%));
+	--gradient-success-light-1: linear-gradient(155deg, hsl(87, 67%, 90%), hsl(101, 57%, 90%));
+	--gradient-error-light-1:   linear-gradient(155deg, hsl(10, 100%, 90%), hsl(333, 73%, 90%));
+	--gradient-warn-light-1:    linear-gradient(155deg, hsl(46, 89%, 90%), hsl(13, 97%, 90%));
+
+	--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 100%, 10%), hsl(236, 100%, 10%));
+	--gradient-success-dark-1:  linear-gradient(155deg, hsl(87, 67%, 10%), hsl(101, 57%, 10%));
+	--gradient-error-dark-1:    linear-gradient(155deg, hsl(10, 100%, 10%), hsl(333, 73%, 10%));
+	--gradient-warn-dark-1:     linear-gradient(155deg, hsl(46, 89%, 10%), hsl(13, 97%, 10%));
 
 	--default-duration:         0.2s;
 
@@ -52,6 +62,10 @@
 	--text-color-1:       var(--text-color-dark-1);
 	--text-color-2:       var(--text-color-dark-2);
 	--overlay-color:      var(--overlay-color-dark);
+	--gradient-info-1:    var(--gradient-info-dark-1);
+	--gradient-success-1: var(--gradient-success-dark-1);
+	--gradient-error-1:   var(--gradient-error-dark-1);
+	--gradient-warn-1:    var(--gradient-warn-dark-1);
 }
 
 
@@ -66,6 +80,10 @@
 	--text-color-1:       var(--text-color-light-1);
 	--text-color-2:       var(--text-color-light-2);
 	--overlay-color:      var(--overlay-color-light);
+	--gradient-info-1:    var(--gradient-info-light-1);
+	--gradient-success-1: var(--gradient-success-light-1);
+	--gradient-error-1:   var(--gradient-error-light-1);
+	--gradient-warn-1:    var(--gradient-warn-light-1);
 }
 
 .with-shadow-0 {
@@ -93,7 +111,7 @@ h1 {
 	font-weight: normal;
 	padding:     0;
 	margin:      0;
-	color: var(--text-color-2);
+	color:       var(--text-color-2);
 }
 
 
@@ -102,7 +120,7 @@ h2 {
 	font-weight: normal;
 	padding:     0;
 	margin:      0;
-	color: var(--text-color-2);
+	color:       var(--text-color-2);
 }
 
 
@@ -111,7 +129,7 @@ h3 {
 	font-weight: bold;
 	padding:     0;
 	margin:      0;
-	color: var(--text-color-2);
+	color:       var(--text-color-2);
 }
 
 
@@ -134,7 +152,7 @@ h5 {
 }
 
 .caption {
-	font-size:      var(--font-size-small);
-	font-weight:    400;
+	font-size:   var(--font-size-small);
+	font-weight: 400;
 }
 
