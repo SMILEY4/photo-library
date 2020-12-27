@@ -27,23 +27,27 @@
 	--text-color-dark-1:        hsl(0, 0%, 80%);
 	--text-color-dark-2:        hsl(0, 0%, 90%);
 
-	--overlay-color-light:      rgba(0, 0, 0, 0.3);
-	--overlay-color-dark:       rgba(128, 128, 128, 0.3);
+	--overlay-color-light:      hsla(0, 0%, 0%, 0.3);
+	--overlay-color-dark:       hsla(0, 0%, 60%, 0.3);
 
-	--gradient-info-0:          linear-gradient(155deg, #7bdbff, #4855ff);
-	--gradient-success-0:       linear-gradient(155deg, #a8e063, #56ab2f);
-	--gradient-error-0:         linear-gradient(155deg, #ff512f, #dd2476);
-	--gradient-warn-0:          linear-gradient(155deg, #f6d365, #fda085);
+	--gradient-info-0:          linear-gradient(155deg, hsl(196, 100%, 74%), hsl(236, 100%, 64%));
+	--gradient-success-0:       linear-gradient(155deg, hsl(87, 67%, 63%), hsl(101, 57%, 43%));
+	--gradient-error-0:         linear-gradient(155deg, hsl(10, 100%, 56%), hsl(333, 80%, 50%));
+	--gradient-warn-0:          linear-gradient(155deg, hsl(46, 89%, 64%), hsl(13, 96%, 71%));
 
 	--gradient-info-light-1:    linear-gradient(155deg, hsl(196, 100%, 90%), hsl(236, 100%, 90%));
 	--gradient-success-light-1: linear-gradient(155deg, hsl(87, 67%, 90%), hsl(101, 57%, 90%));
 	--gradient-error-light-1:   linear-gradient(155deg, hsl(10, 100%, 90%), hsl(333, 73%, 90%));
 	--gradient-warn-light-1:    linear-gradient(155deg, hsl(46, 89%, 90%), hsl(13, 97%, 90%));
 
-	--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 100%, 10%), hsl(236, 100%, 10%));
-	--gradient-success-dark-1:  linear-gradient(155deg, hsl(87, 67%, 10%), hsl(101, 57%, 10%));
-	--gradient-error-dark-1:    linear-gradient(155deg, hsl(10, 100%, 10%), hsl(333, 73%, 10%));
-	--gradient-warn-dark-1:     linear-gradient(155deg, hsl(46, 89%, 10%), hsl(13, 97%, 10%));
+	--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 60%, 20%), hsl(236, 60%, 20%));
+	--gradient-success-dark-1:  linear-gradient(155deg, hsl( 87,  37%, 20%), hsl(101,  27%, 20%));
+	--gradient-error-dark-1:    linear-gradient(155deg, hsl( 10, 60%, 20%), hsl(333,  33%, 20%));
+	--gradient-warn-dark-1:     linear-gradient(155deg, hsl( 46,  49%, 20%), hsl( 13,  57%, 20%));
+	/*--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 100%, 10%), hsl(236, 100%, 10%));*/
+	/*--gradient-success-dark-1:  linear-gradient(155deg, hsl(87, 67%, 10%), hsl(101, 57%, 10%));*/
+	/*--gradient-error-dark-1:    linear-gradient(155deg, hsl(10, 100%, 10%), hsl(333, 73%, 10%));*/
+	/*--gradient-warn-dark-1:     linear-gradient(155deg, hsl(46, 89%, 10%), hsl(13, 97%, 10%));*/
 
 	--default-duration:         0.2s;
 

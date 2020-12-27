@@ -10,10 +10,10 @@ export const NotificationType = {
 	INFO: "info"
 }
 
-export default function Notification({type, icon, title, addCloseButton, onClose, children}) {
+export default function Notification({type, icon, title, addCloseButton, onClose, children, className}) {
 	return (
 		<GradientBorderWrapper className={"notification-wrapper" + " notification-wrapper-" + type}>
-			<div className="notification">
+			<div className={"notification" + (className ? " "+className : "")}>
 				{
 					icon
 						? <div className="notification-icon">{icon}</div>

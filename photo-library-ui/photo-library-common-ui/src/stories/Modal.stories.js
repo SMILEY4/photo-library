@@ -7,6 +7,7 @@ import {AiOutlineInfoCircle} from "react-icons/ai";
 import Dialog from "../components/modals/Dialog";
 import Notification, {NotificationType} from "../components/modals/Notification";
 import SCList from "./utilis/SCList";
+import NotificationStack from "../components/modals/NotificationStack";
 
 export default {
 	title: 'Modals',
@@ -112,4 +113,26 @@ export const BaseNotification = () => (
 		</Notification>
 
 	</SCList>
+)
+
+
+export const Notifications = () => (
+	<NotificationStack notifications={[
+		{
+			type: NotificationType.INFO,
+			title: "Information",
+			text: "Some information about an event",
+			icon: <AiOutlineInfoCircle/>,
+			addCloseButton: true,
+			onClose: action("Close Notification"),
+		},
+		{
+			type: NotificationType.WARN,
+			title: "Warning",
+			text: "an important warning",
+			icon: <AiOutlineInfoCircle/>,
+			addCloseButton: true,
+			onClose: action("Close Notification"),
+		}
+	]}/>
 )

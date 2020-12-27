@@ -11,7 +11,7 @@
 }
 
 .modal-overlay {
-	background:      var(--overlay-color);
+	background: var(--overlay-color);
 }
 
 .modal-hidden-overlay {
@@ -19,7 +19,8 @@
 
 
 .modal {
-	position:         relative;
-	box-sizing:       border-box;
-	overflow:         hidden;
+	position:      relative;
+	box-sizing:    border-box;
+	overflow:      hidden;
+	border-radius: 5px;
 }

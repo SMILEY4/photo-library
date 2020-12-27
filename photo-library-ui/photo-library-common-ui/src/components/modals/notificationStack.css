@@ -1,0 +1,17 @@
+.notification-stack-base {
+	align-self:    flex-end;
+	margin-bottom: 1em;
+
+}
+
+.notification-stack-base {
+	background: none;
+	display:          flex;
+	gap:              1em;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+.notification-stack-base > * {
+	flex-grow: 0;
+}
