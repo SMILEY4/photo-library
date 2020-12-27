@@ -9,9 +9,9 @@ export default function Modal({show, addCloseButton, onClose, footerActions, cla
 	return (
 		<ModalBase show={show} className={className}>
 			<div className="modal-header">
-				<div className="modal-title">
+				<h3 className="modal-title">
 					Modal Header
-				</div>
+				</h3>
 				{renderCloseButton(addCloseButton)}
 			</div>
 			<div className="modal-body">
