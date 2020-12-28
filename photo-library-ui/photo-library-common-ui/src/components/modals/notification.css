@@ -79,14 +79,14 @@
 
 .notification-close:hover,
 .notification-close:hover > * {
-	background-color: var(--base-color-1);
+	background-color: hsla(0, 0%, 40%, 0.3);
 	fill:             var(--text-color-2);
 	stroke:           var(--text-color-2);
 }
 
 .notification-close:active,
 .notification-close:active > * {
-	background-color: var(--base-color-2);
+	background-color: hsla(0, 0%, 20%, 0.3);
 	fill:             var(--text-color-2);
 	stroke:           var(--text-color-2);
 }

@@ -40,14 +40,10 @@
 	--gradient-error-light-1:   linear-gradient(155deg, hsl(10, 100%, 90%), hsl(333, 73%, 90%));
 	--gradient-warn-light-1:    linear-gradient(155deg, hsl(46, 89%, 90%), hsl(13, 97%, 90%));
 
-	--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 60%, 20%), hsl(236, 60%, 20%));
-	--gradient-success-dark-1:  linear-gradient(155deg, hsl( 87,  37%, 20%), hsl(101,  27%, 20%));
-	--gradient-error-dark-1:    linear-gradient(155deg, hsl( 10, 60%, 20%), hsl(333,  33%, 20%));
-	--gradient-warn-dark-1:     linear-gradient(155deg, hsl( 46,  49%, 20%), hsl( 13,  57%, 20%));
-	/*--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 100%, 10%), hsl(236, 100%, 10%));*/
-	/*--gradient-success-dark-1:  linear-gradient(155deg, hsl(87, 67%, 10%), hsl(101, 57%, 10%));*/
-	/*--gradient-error-dark-1:    linear-gradient(155deg, hsl(10, 100%, 10%), hsl(333, 73%, 10%));*/
-	/*--gradient-warn-dark-1:     linear-gradient(155deg, hsl(46, 89%, 10%), hsl(13, 97%, 10%));*/
+	--gradient-info-dark-1:     linear-gradient(155deg, hsl(196, 30%, 20%), hsl(236, 30%, 20%));
+	--gradient-success-dark-1:  linear-gradient(155deg, hsl( 87,  17%, 20%), hsl(101,  17%, 20%));
+	--gradient-error-dark-1:    linear-gradient(155deg, hsl( 10, 30%, 20%), hsl(333,  23%, 20%));
+	--gradient-warn-dark-1:     linear-gradient(155deg, hsl( 46,  29%, 20%), hsl( 13,  30%, 20%));
 
 	--default-duration:         0.2s;
 

@@ -1,50 +1,99 @@
+/* ALL BUTTONS */
+
 .button {
 	cursor:              pointer;
 	-webkit-user-select: none;
 	-moz-user-select:    none;
 	-ms-user-select:     none;
 	user-select:         none;
-	padding:             0.5em;
-	border-radius:       5px;
-	transition:          0.15s;
+
 	display:             flex;
+	align-content:       center;
+	align-items:         center;
 	justify-content:     center;
+
+	padding:             0.5em;
+	gap:                 0.5em;
 	color:               var(--text-color-1);
 }
 
+.button > svg {
+	fill:   var(--text-color-1);
+	stroke: var(--text-color-1);
+}
+
+.button:hover:not(.button-disabled),
+.button:hover:not(.button-disabled) > svg {
+	color:  var(--text-color-2);
+	fill:   var(--text-color-2);
+	stroke: var(--text-color-2);
+}
+
+.button:active:not(.button-disabled),
+.button:active:not(.button-disabled) > svg {
+	color:  var(--text-color-2);
+	fill:   var(--text-color-2);
+	stroke: var(--text-color-2);
+}
+
 .button-small {
-	padding: 0.1em 0.2em;
+	padding:   0.1em 0.2em;
 	font-size: var(--font-size-small);
 }
 
-.button-disabled {
-	color: var(--text-color-0);
+.button-disabled,
+.button-disabled > svg {
+	color:  var(--text-color-0);
+	fill:   var(--text-color-0);
+	stroke: var(--text-color-0);
 }
 
-.button:hover:not(.button-disabled) {
-	background-color: var(--base-color-1);
-	color:            var(--text-color-2);
-}
+/* FILLED BUTTONS */
 
-.button:active:not(.button-disabled) {
-	background-color: var(--base-color-2);
-	color:            var(--text-color-2);
-}
-
-.button-normal {
+.button-filled {
 	background-color: var(--base-color-0);
 	border:           1px solid var(--base-color-3);
+	border-radius:    5px;
 }
+
+.button-filled:hover:not(.button-disabled) {
+	background-color: var(--base-color-1);
+}
+
+.button-filled:active:not(.button-disabled) {
+	background-color: var(--base-color-2);
+}
+
+
+/* GHOST BUTTONS */
 
 .button-ghost {
 	background-color: transparent;
 	border:           1px solid var(--base-color-3);
+	border-radius:    5px;
 }
 
-.button-raw {
-	padding: calc(0.5em + 1px);
+.button-ghost:hover:not(.button-disabled) {
+	background-color: var(--base-color-1);
 }
 
-.button-raw.button-small {
-	padding: calc(0.1em + 1px) calc(0.2em + 1px);
+.button-ghost:active:not(.button-disabled) {
+	background-color: var(--base-color-2);
+}
+
+
+/* TEXT BUTTONS */
+
+.button-text {
+	border:           1px solid transparent;
+	border-radius:    5px;
+	background-color: var(--base-color-1);
+}
+
+.button-text:hover:not(.button-disabled) {
+	background-color: var(--base-color-1);
+}
+
+.button-text:active:not(.button-disabled) {
+	background-color: var(--base-color-2);
 }

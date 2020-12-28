@@ -1,10 +1,10 @@
 import React from "react";
 import TextField from "../components/textfield/TextField";
 import SCColumns from "./utilis/SCColumns";
-import Button from "../components/button/Button";
 import {action} from "@storybook/addon-actions";
 import SCList from "./utilis/SCList";
 import {AiFillEdit, AiOutlineSearch} from "react-icons/ai";
+import ButtonFilled from "../components/button/ButtonFilled";
 
 export default {
 	title: 'TextField',
@@ -14,7 +14,7 @@ export default {
 export const All = () => (
 	<SCColumns>
 		<SCList>
-			<Button label="Button"/>
+			<ButtonFilled label="Button"/>
 		</SCList>
 		<SCList>
 			<TextField onAccept={action("accepted")} onChange={action("changed")}/>
@@ -54,23 +54,23 @@ export const WithContent = () => (
 		<SCList>
 
 			<TextField placeholder="Some Text" onAccept={action("accepted")} onChange={action("changed")}>
-				<Button label={"Button"} small={true}/>
+				<ButtonFilled label={"Button"} small={true}/>
 			</TextField>
 
 			<TextField placeholder="Outlined Style" outlined={true} onAccept={action("accepted")} onChange={action("changed")}>
-				<Button label={"Button"} small={true}/>
+				<ButtonFilled label={"Button"} small={true}/>
 			</TextField>
 
 			<TextField placeholder="Invalid" onAccept={action("accepted")} onChange={action("changed")} invalid={true}>
-				<Button label={"Button"} small={true}/>
+				<ButtonFilled label={"Button"} small={true}/>
 			</TextField>
 
 			<TextField initialValue="Not Editable" editable={false} onAccept={action("accepted")} onChange={action("changed")}>
-				<Button label={"Button"} small={true}/>
+				<ButtonFilled label={"Button"} small={true}/>
 			</TextField>
 
 			<TextField initialValue="Not Editable" editable={false} invalid={true} onAccept={action("accepted")} onChange={action("changed")}>
-				<Button label={"Button"} small={true}/>
+				<ButtonFilled label={"Button"} small={true}/>
 			</TextField>
 
 		</SCList>

@@ -1,13 +1,12 @@
 import React from "react";
 import ModalBase from "../components/modals/ModalBase";
 import {action} from "@storybook/addon-actions";
-import {ButtonStyles} from "../components/button/Button";
-import {SpecialisationType} from "../components/button/SpecializedButton";
 import {AiOutlineInfoCircle} from "react-icons/ai";
 import Dialog from "../components/modals/Dialog";
 import Notification, {NotificationType} from "../components/modals/Notification";
 import SCList from "./utilis/SCList";
 import NotificationStack from "../components/modals/NotificationStack";
+import {HLButtonType} from "../components/button/HLButton";
 
 export default {
 	title: 'Modals',
@@ -36,15 +35,13 @@ export const Dialogs = () => (
 				{
 					label: "Cancel",
 					disabled: false,
-					buttonStyle: ButtonStyles.GHOST,
 					onClick: action("Cancel")
 				},
 				{
 					label: "Accept",
 					disabled: false,
-					buttonStyle: ButtonStyles.NORMAL,
 					onClick: action("Accept"),
-					specialization: SpecialisationType.INFO
+					specialization: HLButtonType.INFO
 				}
 			]}
 	>

@@ -1,43 +1,111 @@
-import Button, {ButtonStyles} from "../components/button/Button";
 import React from "react";
 import SCList from "./utilis/SCList";
 import ScColumn from "./utilis/SCColumns";
-import SpecializedButton, {SpecialisationType} from "../components/button/SpecializedButton";
 import {action} from "@storybook/addon-actions";
+import ButtonFilled from "../components/button/ButtonFilled";
+import ButtonGhost from "../components/button/ButtonGhost";
+import ButtonText from "../components/button/ButtonText";
+import {AiFillCaretRight, AiFillHome, AiFillTool} from "react-icons/ai";
+import HLButton, {HLButtonType} from "../components/button/HLButton";
+import HLButtonGhost0 from "../components/button/HLButtonGhost0";
+import HLButtonGhost1 from "../components/button/HLButtonGhost1";
 
 export default {
 	title: 'Button',
-	component: Button
 }
 
-export const All = () => (
+export const Normal = () => (
 	<ScColumn>
-		<SCList>
-			<SpecializedButton onClick={action("Click")} type={SpecialisationType.INFO} label="Info Button"/>
-			<SpecializedButton onClick={action("Click")} type={SpecialisationType.VALID} label="Valid Button"/>
-			<SpecializedButton onClick={action("Click")} type={SpecialisationType.ERROR} label="Error Button"/>
-			<SpecializedButton onClick={action("Click")} type={SpecialisationType.WARN} label="Warn Button"/>
+
+		<SCList title="Filled Buttons">
+			<ButtonFilled label={"Button"} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} disabled={true} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} small={true} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>}
+						  onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<ButtonFilled label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
 		</SCList>
-		<SCList>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} label="First Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} label="Second Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} label="Third Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} label="Disabled Button" disabled={true}/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.NORMAL} small={true} label="Small Button"/>
+
+		<SCList title="Ghost Buttons">
+			<ButtonGhost label={"Button"} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} disabled={true} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} small={true} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>}
+						 onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<ButtonGhost label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
 		</SCList>
-		<SCList>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.GHOST} label="First Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.GHOST} label="Second Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.GHOST} label="Third Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.GHOST} label="Disabled Button" disabled={true}/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.GHOST} small={true} label="Small Button"/>
+
+		<SCList title="Text Buttons">
+			<ButtonText label={"Button"} onClick={action("Click")}/>
+			<ButtonText label={"Button"} disabled={true} onClick={action("Click")}/>
+			<ButtonText label={"Button"} small={true} onClick={action("Click")}/>
+			<ButtonText label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<ButtonText label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<ButtonText label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<ButtonText label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>}
+						onClick={action("Click")}/>
+			<ButtonText label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<ButtonText label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
 		</SCList>
-		<SCList>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.RAW} label="First Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.RAW} label="Second Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.RAW} label="Third Button"/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.RAW} label="Disabled Button" disabled={true}/>
-			<Button onClick={action("Click")} buttonStyle={ButtonStyles.RAW} small={true} label="Small Button"/>
+
+	</ScColumn>
+)
+
+
+export const Highlighted = () => (
+	<ScColumn>
+
+		<SCList title="Buttons">
+			<HLButton type={HLButtonType.INFO} label={"Button"} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.SUCCESS} label={"Button"} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.ERROR} label={"Button"} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.WARN} label={"Button"} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} disabled={true} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} small={true} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<HLButton type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
+		</SCList>
+
+		<SCList title="Ghost Buttons (0)">
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.SUCCESS} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.ERROR} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.WARN} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} small={true} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost0 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
+		</SCList>
+
+		<SCList title="Ghost Buttons (1)">
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.SUCCESS} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.ERROR} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.WARN} label={"Button"} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} small={true} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} small={true} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillTool/>} iconRight={<AiFillCaretRight/>} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} iconRight={<AiFillCaretRight/>} disabled={true} onClick={action("Click")}/>
+			<HLButtonGhost1 type={HLButtonType.INFO} label={"Button"} iconLeft={<AiFillHome/>} small={true} onClick={action("Click")}/>
 		</SCList>
 
 	</ScColumn>

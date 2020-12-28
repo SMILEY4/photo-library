@@ -2,8 +2,8 @@ import React from "react";
 import "./dialog.css"
 import ModalBase from "./ModalBase";
 import {CgClose} from "react-icons/cg";
-import Button from "../button/Button";
-import SpecializedButton from "../button/SpecializedButton";
+import HLButton from "../button/HLButton";
+import ButtonFilled from "../button/ButtonFilled";
 
 export default function Dialog({show, icon, addCloseButton, onClose, footerActions, className, children}) {
 	return (
@@ -26,7 +26,7 @@ export default function Dialog({show, icon, addCloseButton, onClose, footerActio
 					footerActions.map(action => {
 						if (action.specialization) {
 							return (
-								<SpecializedButton
+								<HLButton
 									label={action.label}
 									type={action.specialization}
 									disabled={action.disabled}
@@ -35,11 +35,10 @@ export default function Dialog({show, icon, addCloseButton, onClose, footerActio
 							)
 						} else {
 							return (
-								<Button
+								<ButtonFilled
 									label={action.label}
 									disabled={action.disabled}
 									onClick={action.onClick}
-									buttonStyle={action.buttonStyle}
 								/>
 							)
 						}

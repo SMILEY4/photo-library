@@ -1,4 +1,3 @@
-import Button from "../components/button/Button";
 import React from "react";
 import SCList from "./utilis/SCList";
 import SCColorStrip from "./utilis/SCColorStrip";
