@@ -1,20 +1,17 @@
 import React, {useState} from "react";
 import "./textfield.css"
 
-export default function TextField({initialValue, placeholder, disabled, editable, fieldSize, maxlength, invalid, outlined, onChange, onAccept, children}) {
-
+export default function TextFieldBase({initialValue, placeholder, editable, disabled, fieldSize, maxLength, onChange, onAccept, className}) {
 	const [value, setValue] = useState(initialValue ? initialValue : "")
-
 	return (
 		<div className={getClassName()}>
-			{children}
 			<input
 				value={value}
 				type="text"
 				placeholder={placeholder}
 				disabled={disabled || editable === false}
 				size={fieldSize}
-				maxLength={maxlength}
+				maxLength={maxLength}
 				onChange={onValueChange}
 				onBlur={onLeaveField}
 				onKeyDown={handleKeyDown}
@@ -22,15 +19,12 @@ export default function TextField({initialValue, placeholder, disabled, editable
 		</div>
 	)
 
-
 	function getClassName() {
 		return "text-field"
-			+ (invalid ? " text-field-invalid" : "")
 			+ (disabled ? " text-field-disabled" : "")
 			+ (editable === false ? " text-field-not-editable" : "")
-			+ (outlined ? " text-field-outlined" : "")
+			+ (className ? " " + className : "")
 	}
-
 
 	function onValueChange(event) {
 		const nextValue = event.target.value;
@@ -40,13 +34,11 @@ export default function TextField({initialValue, placeholder, disabled, editable
 		}
 	}
 
-
 	function onLeaveField() {
 		if (onAccept) {
 			onAccept(value)
 		}
 	}
-
 
 	function handleKeyDown(event) {
 		if (onAccept && event.key === 'Enter') {

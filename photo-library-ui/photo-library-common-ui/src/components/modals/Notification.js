@@ -1,6 +1,6 @@
 import React from "react";
 import "./notification.css"
-import GradientBorderWrapper from "../misc/GradientBorderWrapper";
+import GradientBorderWrapper from "../gradientborder/GradientBorderWrapper";
 import {CgClose} from "react-icons/cg";
 
 export const NotificationType = {

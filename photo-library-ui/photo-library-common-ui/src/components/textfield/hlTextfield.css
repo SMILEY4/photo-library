@@ -1,0 +1,71 @@
+.hl-text-field-wrapper-info {
+	background: var(--gradient-info-0);
+}
+
+.hl-text-field-wrapper-success {
+	background: var(--gradient-success-0);
+}
+
+.hl-text-field-wrapper-error {
+	background: var(--gradient-error-0);
+}
+
+.hl-text-field-wrapper-warn {
+	background: var(--gradient-warn-0);
+}
+
+.hl-text-field-wrapper-none {
+	background: var(--base-color-3);
+}
+
+
+.hl-text-field {
+	border-radius:    5px;
+	border:           1px solid var(--base-color-3);
+	background-color: var(--base-color-1);
+
+	position:         relative;
+	display:          flex;
+	flex-direction:   row;
+	align-items:      center;
+
+	padding:          0.5em;
+	gap:              1em;
+}
+
+.hl-text-field-ghost-0 > .hl-text-field:not(:focus-within) {
+	background-color: var(--background-color-0);
+}
+
+.hl-text-field-ghost-1 > .hl-text-field:not(:focus-within) {
+	background-color: var(--background-color-1);
+}
+
+.hl-text-field:focus-within {
+	background-color: var(--base-color-0);
+}
+
+
+.hl-text-field > input {
+	border:           none;
+	background-color: transparent;
+	font-size:        1em;
+	padding:          0;
+}
+
+.hl-text-field > input {
+	color: var(--text-color-1)
+}
+
+.hl-text-field-disabled > input {
+	color: var(--text-color-0)
+}
+
+.hl-text-field > input:invalid {
+	box-shadow: none;
+}
+
+.hl-text-field-not-editable > input {
+	cursor: text;
+}
+

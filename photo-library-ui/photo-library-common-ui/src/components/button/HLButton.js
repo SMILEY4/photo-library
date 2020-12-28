@@ -1,5 +1,5 @@
 import React from "react";
-import GradientBorderWrapper from "../misc/GradientBorderWrapper";
+import GradientBorderWrapper from "../gradientborder/GradientBorderWrapper";
 import "./hlButtons.css"
 
 export const HLButtonType = {

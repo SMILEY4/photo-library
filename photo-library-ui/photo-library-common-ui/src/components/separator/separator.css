@@ -1,0 +1,17 @@
+.separator {
+	background-color: var(--base-color-3);
+}
+
+.separator-vertical {
+	min-height:       1px;
+	height:           1px;
+	max-height:       1px;
+	width:            100%;
+}
+
+.separator-horizontal {
+	max-width:       1px;
+	width:           1px;
+	min-width:       1px;
+	height:            100%;
+}

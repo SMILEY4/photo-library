@@ -1,33 +1,14 @@
 .text-field {
-	padding:          0.5em;
 	border-radius:    5px;
-	position:         relative;
-	background-color: var(--base-color-1);
 	border:           1px solid var(--base-color-3);
+
+	position:         relative;
 	display:          flex;
 	flex-direction:   row;
 	align-items:      center;
+
+	padding:          0.5em;
 	gap:              1em;
-}
-
-.text-field > svg {
-	fill: var(--text-color-1);
-	stroke: var(--text-color-1);
-}
-
-
-.text-field:focus-within > svg {
-	fill: var(--text-color-2);
-	stroke: var(--text-color-2);
-}
-
-
-.text-field-disabled {
-	color: var(--text-color-0);
-}
-
-.text-field-outlined {
-	background-color: transparent;
 }
 
 .text-field:focus-within {
@@ -49,28 +30,20 @@
 	color: var(--text-color-0)
 }
 
-
 .text-field > input:invalid {
 	box-shadow: none;
 }
 
-
-.text-field-invalid {
-	position:         relative;
-	border:           1px solid transparent;
-	background-clip:  padding-box;
-	background-color: var(--base-color-1);
+.text-field-not-editable > input {
+	cursor: text;
 }
 
 
-.text-field-invalid:after {
-	position:      absolute;
-	top:           -1px;
-	bottom:        -1px;
-	left:          -1px;
-	right:         -1px;
-	content:       '';
-	z-index:       -1;
-	border-radius: 5px;
-	background:    linear-gradient(155deg, #ff512f, #dd2476);
+
+.text-field-filled {
+	background-color: var(--base-color-1);
+}
+
+.text-field-ghost {
+	background-color: transparent;
 }
