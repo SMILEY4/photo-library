@@ -10,11 +10,12 @@ export const HLTextFieldType = {
 	INFO: "info"
 }
 
-export default function HLTextField({initialValue, placeholder, type, editable, disabled, fieldSize, maxLength, onChange, onAccept, className}) {
+export default function HLTextField({initialValue, placeholder, type, editable, disabled, fieldSize, maxLength, onChange, onAccept, children, className}) {
 	const [value, setValue] = useState(initialValue ? initialValue : "")
 	return (
 		<GradientBorderWrapper className={getWrapperClassNames()}>
 			<div className={getClassNames()}>
+				{children}
 				<input
 					value={value}
 					type="text"
@@ -33,6 +34,7 @@ export default function HLTextField({initialValue, placeholder, type, editable, 
 
 	function getClassNames() {
 		return "hl-text-field"
+			+ (children ? " hl-text-field-with-content" : "")
 			+ (disabled ? " hl-text-field-disabled" : "")
 			+ (editable === false ? " hl-text-field-not-editable" : "")
 	}

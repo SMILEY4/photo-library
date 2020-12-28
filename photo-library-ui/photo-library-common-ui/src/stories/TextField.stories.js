@@ -9,6 +9,8 @@ import TextFieldGhost from "../components/textfield/TextFieldGhost";
 import HLTextField, {HLTextFieldType} from "../components/textfield/HLTextField";
 import HLTextFieldGhost0 from "../components/textfield/HLTextFieldGhost0";
 import HLTextFieldGhost1 from "../components/textfield/HLTextFieldGhost1";
+import ButtonFilled from "../components/button/ButtonFilled";
+import {AiFillEdit} from "react-icons/ai";
 
 export default {
 	title: 'TextField',
@@ -17,6 +19,12 @@ export default {
 
 export const Normal = () => (
 	<SCColumns>
+
+		<SCList title={"Reference"}>
+			<ButtonFilled label={"Button"}/>
+			<ButtonFilled label={"Button"}/>
+			<ButtonFilled label={"Button"}/>
+		</SCList>
 
 		<SCList title={"Filled"}>
 			<TextFieldFilled onChange={action("change")} onAccept={action("accept")}/>
@@ -46,12 +54,28 @@ export const Normal = () => (
 			<TextFieldGhost onChange={action("change")} onAccept={action("accept")} initialValue="Initial Value" editable={false}/>
 		</SCList>
 
+		<SCList title={"With Content"}>
+			<TextFieldFilled onChange={action("change")} onAccept={action("accept")}>
+				<ButtonFilled label="Button" small={true}/>
+			</TextFieldFilled>
+			<TextFieldFilled placeholder="Placeholder" onChange={action("change")} onAccept={action("accept")}>
+				<AiFillEdit/>
+			</TextFieldFilled>
+			<TextFieldFilled initialValue="Disabled" disabled={true} onChange={action("change")} onAccept={action("accept")}>
+				<AiFillEdit/>
+			</TextFieldFilled>
+		</SCList>
+
 	</SCColumns>
 )
 
 
 export const Highlighted = () => (
 	<SCColumns>
+
+		<SCList title={"Reference"}>
+			<ButtonFilled label={"Button"}/>
+		</SCList>
 
 		<SCList title={"Filled"}>
 			<HLTextField onChange={action("change")} onAccept={action("accept")} type={HLTextFieldType.NONE}/>
@@ -95,6 +119,17 @@ export const Highlighted = () => (
 			<HLTextFieldGhost1 onChange={action("change")} onAccept={action("accept")} type={HLTextFieldType.ERROR} initialValue="Initial Value" editable={false}/>
 		</SCList>
 
+		<SCList title={"With Content"}>
+			<HLTextField type={HLTextFieldType.ERROR} onChange={action("change")} onAccept={action("accept")}>
+				<ButtonFilled label="Button" small={true}/>
+			</HLTextField>
+			<HLTextField type={HLTextFieldType.ERROR} placeholder="Placeholder" onChange={action("change")} onAccept={action("accept")}>
+				<AiFillEdit/>
+			</HLTextField>
+			<HLTextField type={HLTextFieldType.ERROR} initialValue="Disabled" disabled={true} onChange={action("change")} onAccept={action("accept")}>
+				<AiFillEdit/>
+			</HLTextField>
+		</SCList>
 
 	</SCColumns>
 )

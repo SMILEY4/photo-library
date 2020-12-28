@@ -1,14 +1,18 @@
 .text-field {
-	border-radius:    5px;
-	border:           1px solid var(--base-color-3);
+	border-radius:  5px;
+	border:         1px solid var(--base-color-3);
 
-	position:         relative;
-	display:          flex;
-	flex-direction:   row;
-	align-items:      center;
+	position:       relative;
+	display:        flex;
+	flex-direction: row;
+	align-items:    center;
 
-	padding:          0.5em;
-	gap:              1em;
+	padding:        0.5em;
+	gap:            1em;
+}
+
+.text-field-with-content > *:first-child {
+	max-height: 1em;
 }
 
 .text-field:focus-within {
@@ -26,8 +30,10 @@
 	color: var(--text-color-1)
 }
 
-.text-field-disabled > input {
-	color: var(--text-color-0)
+.text-field-disabled > input,
+.text-field-disabled > svg {
+	color: var(--text-color-0);
+	fill:  var(--text-color-0);
 }
 
 .text-field > input:invalid {
@@ -37,7 +43,6 @@
 .text-field-not-editable > input {
 	cursor: text;
 }
-
 
 
 .text-field-filled {

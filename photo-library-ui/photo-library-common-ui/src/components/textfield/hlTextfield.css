@@ -33,6 +33,10 @@
 	gap:              1em;
 }
 
+.hl-text-field-with-content > *:first-child {
+	max-height: 1em;
+}
+
 .hl-text-field-ghost-0 > .hl-text-field:not(:focus-within) {
 	background-color: var(--background-color-0);
 }
@@ -46,6 +50,8 @@
 }
 
 
+
+
 .hl-text-field > input {
 	border:           none;
 	background-color: transparent;
@@ -57,8 +63,10 @@
 	color: var(--text-color-1)
 }
 
-.hl-text-field-disabled > input {
-	color: var(--text-color-0)
+.hl-text-field-disabled > input,
+.hl-text-field-disabled > svg {
+	color: var(--text-color-0);
+	fill: var(--text-color-0);
 }
 
 .hl-text-field > input:invalid {

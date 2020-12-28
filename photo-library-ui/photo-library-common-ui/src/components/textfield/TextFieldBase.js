@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import "./textfield.css"
 
-export default function TextFieldBase({initialValue, placeholder, editable, disabled, fieldSize, maxLength, onChange, onAccept, className}) {
+export default function TextFieldBase({initialValue, placeholder, editable, disabled, fieldSize, maxLength, onChange, onAccept, children, className}) {
 	const [value, setValue] = useState(initialValue ? initialValue : "")
 	return (
 		<div className={getClassName()}>
+			{children}
 			<input
 				value={value}
 				type="text"
@@ -19,12 +20,15 @@ export default function TextFieldBase({initialValue, placeholder, editable, disa
 		</div>
 	)
 
+
 	function getClassName() {
 		return "text-field"
+			+ (children ? " text-field-with-content" : "")
 			+ (disabled ? " text-field-disabled" : "")
 			+ (editable === false ? " text-field-not-editable" : "")
 			+ (className ? " " + className : "")
 	}
+
 
 	function onValueChange(event) {
 		const nextValue = event.target.value;
@@ -34,11 +38,13 @@ export default function TextFieldBase({initialValue, placeholder, editable, disa
 		}
 	}
 
+
 	function onLeaveField() {
 		if (onAccept) {
 			onAccept(value)
 		}
 	}
+
 
 	function handleKeyDown(event) {
 		if (onAccept && event.key === 'Enter') {
