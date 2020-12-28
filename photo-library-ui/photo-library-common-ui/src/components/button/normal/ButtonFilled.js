@@ -1,14 +1,13 @@
 import React from "react";
-import "./button.css"
-import ButtonBase from "./ButtonBase";
+import ButtonBase from "../base/ButtonBase";
+import "./buttonNormal.css"
 
-export default function ButtonFilled({label, iconLeft, iconRight, small, disabled, onClick, className}) {
+export default function ButtonFilled({label, iconLeft, iconRight, disabled, onClick, className}) {
 	return (
 		<ButtonBase
 			label={label}
 			iconLeft={iconLeft}
 			iconRight={iconRight}
-			small={small}
 			disabled={disabled}
 			onClick={onClick}
 			className={"button-filled" + (className ? " " + className : "")}

@@ -9,8 +9,9 @@ import TextFieldGhost from "../components/textfield/TextFieldGhost";
 import HLTextField, {HLTextFieldType} from "../components/textfield/HLTextField";
 import HLTextFieldGhost0 from "../components/textfield/HLTextFieldGhost0";
 import HLTextFieldGhost1 from "../components/textfield/HLTextFieldGhost1";
-import ButtonFilled from "../components/button/ButtonFilled";
 import {AiFillEdit} from "react-icons/ai";
+import ButtonFilled from "../components/button/normal/ButtonFilled";
+import SmallButtonFilled from "../components/button/normal/SmallButtonFilled";
 
 export default {
 	title: 'TextField',
@@ -56,7 +57,7 @@ export const Normal = () => (
 
 		<SCList title={"With Content"}>
 			<TextFieldFilled onChange={action("change")} onAccept={action("accept")}>
-				<ButtonFilled label="Button" small={true}/>
+				<SmallButtonFilled label="Button"/>
 			</TextFieldFilled>
 			<TextFieldFilled placeholder="Placeholder" onChange={action("change")} onAccept={action("accept")}>
 				<AiFillEdit/>
@@ -121,7 +122,7 @@ export const Highlighted = () => (
 
 		<SCList title={"With Content"}>
 			<HLTextField type={HLTextFieldType.ERROR} onChange={action("change")} onAccept={action("accept")}>
-				<ButtonFilled label="Button" small={true}/>
+				<SmallButtonFilled label="Button"/>
 			</HLTextField>
 			<HLTextField type={HLTextFieldType.ERROR} placeholder="Placeholder" onChange={action("change")} onAccept={action("accept")}>
 				<AiFillEdit/>

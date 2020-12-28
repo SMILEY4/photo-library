@@ -1,51 +1,7 @@
-/* ALL BUTTONS */
-
-.button {
-	cursor:              pointer;
-	-webkit-user-select: none;
-	-moz-user-select:    none;
-	-ms-user-select:     none;
-	user-select:         none;
-
-	display:             flex;
-	align-content:       center;
-	align-items:         center;
-	justify-content:     center;
-
-	padding:             0.5em;
-	gap:                 0.5em;
-	color:               var(--text-color-1);
-}
-
-.button > svg {
-	fill:   var(--text-color-1);
-	stroke: var(--text-color-1);
-}
-
-.button:hover:not(.button-disabled),
-.button:hover:not(.button-disabled) > svg {
-	color:  var(--text-color-2);
-	fill:   var(--text-color-2);
-	stroke: var(--text-color-2);
-}
-
-.button:active:not(.button-disabled),
-.button:active:not(.button-disabled) > svg {
-	color:  var(--text-color-2);
-	fill:   var(--text-color-2);
-	stroke: var(--text-color-2);
-}
 
 .button-small {
 	padding:   0.1em 0.2em;
 	font-size: var(--font-size-small);
-}
-
-.button-disabled,
-.button-disabled > svg {
-	color:  var(--text-color-0);
-	fill:   var(--text-color-0);
-	stroke: var(--text-color-0);
 }
 
 /* FILLED BUTTONS */

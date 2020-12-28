@@ -1,0 +1,37 @@
+.hl-button-info {
+	background: var(--gradient-info-0) !important;
+}
+
+.hl-button-success {
+	background: var(--gradient-success-0) !important;
+}
+
+.hl-button-error {
+	background: var(--gradient-error-0) !important;
+}
+
+.hl-button-warn {
+	background: var(--gradient-warn-0) !important;
+}
+
+.hl-button {
+	background-color: var(--base-color-0);
+	border:           1px solid var(--base-color-3);
+	border-radius:    5px;
+}
+
+.hl-button:hover:not(.hl-button-disabled) {
+	background-color: var(--base-color-1);
+}
+
+.hl-button:active:not(.hl-button-disabled) {
+	background-color: var(--base-color-2);
+}
+
+.hl-button-ghost-0 {
+	background-color: var(--background-color-0);
+}
+
+.hl-button-ghost-1 {
+	background-color: var(--background-color-1);
+}
