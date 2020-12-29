@@ -1,16 +1,15 @@
 import React from "react";
-import ButtonBase from "../base/ButtonBase";
-import "./buttonNormal.css"
+import ButtonFilled from "./ButtonFilled";
 
-export default function SmallButtonFilled({label, iconLeft, iconRight, disabled, onClick, className}) {
+export default function SmallButtonFilled({type, disabled, onClick, children, className}) {
 	return (
-		<ButtonBase
-			label={label}
-			iconLeft={iconLeft}
-			iconRight={iconRight}
+		<ButtonFilled
+			type={type}
 			disabled={disabled}
 			onClick={onClick}
-			className={"button-small button-filled" + (className ? " " + className : "")}
-		/>
+			className={"button-small" + (className ? " " + className : "")}
+		>
+			{children}
+		</ButtonFilled>
 	)
 }

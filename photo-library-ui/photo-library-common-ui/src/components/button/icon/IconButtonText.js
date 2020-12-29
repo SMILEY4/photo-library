@@ -1,14 +1,14 @@
 import React from "react";
-import ButtonBase from "../ButtonBase";
+import IconButtonBase from "./IconButtonBase";
 
-export default function ButtonText({disabled, onClick, children, className}) {
+export default function IconButtonText({disabled, onClick, children, className}) {
 	return (
-		<ButtonBase
+		<IconButtonBase
 			disabled={disabled}
 			onClick={onClick}
 			className={"button-text" + (className ? " " + className : "")}
 		>
 			{children}
-		</ButtonBase>
+		</IconButtonBase>
 	)
 }

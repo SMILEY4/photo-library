@@ -1,88 +1,133 @@
 import ScColumn from "./utilis/SCColumns";
 import SCList from "./utilis/SCList";
 import React from "react";
+import {action} from "@storybook/addon-actions";
 import {AiFillCaretRight, AiFillHome} from "react-icons/ai";
 import ButtonFilled from "../components/button/normal/ButtonFilled";
 import ButtonGhost from "../components/button/normal/ButtonGhost";
 import ButtonText from "../components/button/normal/ButtonText";
-import {action} from "@storybook/addon-actions";
+import IconButtonFilled from "../components/button/icon/IconButtonFilled";
+import IconButtonGhost from "../components/button/icon/IconButtonGhost";
+import IconButtonText from "../components/button/icon/IconButtonText";
 import SmallButtonFilled from "../components/button/normal/SmallButtonFilled";
 import SmallButtonGhost from "../components/button/normal/SmallButtonGhost";
 import SmallButtonText from "../components/button/normal/SmallButtonText";
-import InfoButton from "../components/button/highlighted/InfoButton";
-import SuccessButton from "../components/button/highlighted/SuccessButton";
-import ErrorButton from "../components/button/highlighted/ErrorButton";
-import WarnButton from "../components/button/highlighted/WarnButton";
-import HLGhostButton from "../components/button/highlighted/HLGhostButton";
-import ErrorButtonGhost from "../components/button/highlighted/ErrorButtonGhost";
+
 
 export default {
-	title: 'NewButtons',
+	title: 'Buttons',
 }
+
 
 export const Normal = () => (
 	<ScColumn>
 
-		<SCList title="Button Filled">
-			<ButtonFilled onClick={click()} label="Button"/>
-			<ButtonFilled onClick={click()} label="Button" disabled={true}/>
-			<ButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<ButtonFilled onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<ButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}/>
-			<ButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-						  disabled={true}/>
+		<SCList title="Filled">
+
+			<ButtonFilled onClick={click()}>
+				Button
+			</ButtonFilled>
+
+			<ButtonFilled onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonFilled>
+
+			<ButtonFilled onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonFilled>
+
+			<SmallButtonFilled onClick={click()}>
+				Button
+			</SmallButtonFilled>
+
+			<SmallButtonFilled onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonFilled>
+
+			<SmallButtonFilled onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonFilled>
+
 		</SCList>
 
-		<SCList title="Button Ghost">
-			<ButtonGhost onClick={click()} label="Button"/>
-			<ButtonGhost onClick={click()} label="Button" disabled={true}/>
-			<ButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<ButtonGhost onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<ButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}/>
-			<ButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-						 disabled={true}/>
+		<SCList title="Ghost">
+
+			<ButtonGhost onClick={click()}>
+				Button
+			</ButtonGhost>
+
+			<ButtonGhost onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonGhost>
+
+			<ButtonGhost onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonGhost>
+
+			<SmallButtonGhost onClick={click()}>
+				Button
+			</SmallButtonGhost>
+
+			<SmallButtonGhost onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonGhost>
+
+			<SmallButtonGhost onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonGhost>
+
 		</SCList>
 
-		<SCList title="Button Text">
-			<ButtonText onClick={click()} label="Button"/>
-			<ButtonText onClick={click()} label="Button" disabled={true}/>
-			<ButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<ButtonText onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<ButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}/>
-			<ButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-						disabled={true}/>
-		</SCList>
+		<SCList title="Text">
 
-		<SCList title="Small Button Filled">
-			<SmallButtonFilled onClick={click()} label="Button"/>
-			<SmallButtonFilled onClick={click()} label="Button" disabled={true}/>
-			<SmallButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<SmallButtonFilled onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>}
-							   iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonFilled onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-							   disabled={true}/>
-		</SCList>
+			<ButtonText onClick={click()}>
+				Button
+			</ButtonText>
 
-		<SCList title="Small Button Ghost">
-			<SmallButtonGhost onClick={click()} label="Button"/>
-			<SmallButtonGhost onClick={click()} label="Button" disabled={true}/>
-			<SmallButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<SmallButtonGhost onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>}
-							  iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonGhost onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-							  disabled={true}/>
-		</SCList>
+			<ButtonText onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonText>
 
-		<SCList title="Small Button Text">
-			<SmallButtonText onClick={click()} label="Button"/>
-			<SmallButtonText onClick={click()} label="Button" disabled={true}/>
-			<SmallButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<SmallButtonText onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}/>
-			<SmallButtonText onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}
-							 disabled={true}/>
+			<ButtonText onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</ButtonText>
+
+			<SmallButtonText onClick={click()}>
+				Button
+			</SmallButtonText>
+
+			<SmallButtonText onClick={click()}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonText>
+
+			<SmallButtonText onClick={click()} disabled={true}>
+				<AiFillHome/>
+				Button
+				<AiFillCaretRight/>
+			</SmallButtonText>
+
 		</SCList>
 
 	</ScColumn>
@@ -92,26 +137,56 @@ export const Normal = () => (
 export const Highlighted = () => (
 	<ScColumn>
 
-		<SCList title="Types">
-			<InfoButton onClick={click()} label="Info"/>
-			<SuccessButton onClick={click()} label="Success"/>
-			<ErrorButton onClick={click()} label="Error"/>
-			<WarnButton onClick={click()} label="Warning"/>
+		<SCList title="Filled">
+			<ButtonFilled type="info" onClick={click()}>Info</ButtonFilled>
+			<ButtonFilled type="success" onClick={click()}>Success</ButtonFilled>
+			<ButtonFilled type="error" onClick={click()}>Error</ButtonFilled>
+			<ButtonFilled type="warn" onClick={click()}>Warning</ButtonFilled>
+			<SmallButtonFilled type="info" onClick={click()}>Info</SmallButtonFilled>
 		</SCList>
 
-		<SCList title="Variations">
-			<InfoButton onClick={click()} label="Button"/>
-			<InfoButton onClick={click()} label="Button" disabled={true}/>
-			<InfoButton onClick={click()} label="Button" iconLeft={<AiFillHome/>}/>
-			<InfoButton onClick={click()} label="Button" iconRight={<AiFillCaretRight/>}/>
-			<InfoButton onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>}/>
-			<InfoButton onClick={click()} label="Button" iconLeft={<AiFillHome/>} iconRight={<AiFillCaretRight/>} disabled={true}/>
+		<SCList title="Ghost 0">
+			<ButtonGhost type="info" bg={0}>Info</ButtonGhost>
+			<ButtonGhost type="success" bg={0}>Success</ButtonGhost>
+			<ButtonGhost type="error" bg={0}>Error</ButtonGhost>
+			<ButtonGhost type="warn" bg={0}>Warning</ButtonGhost>
+			<SmallButtonGhost type="info" bg={0}>Info</SmallButtonGhost>
 		</SCList>
 
-		<SCList title="Ghost">
-			<ErrorButtonGhost bg={0} onClick={click()} label="Ghost 0"/>
-			<ErrorButtonGhost bg={1} onClick={click()} label="Ghost 1"/>
+		<SCList title="Ghost 1">
+			<ButtonGhost type="info" bg={1}>Info</ButtonGhost>
+			<ButtonGhost type="success" bg={1}>Success</ButtonGhost>
+			<ButtonGhost type="error" bg={1}>Error</ButtonGhost>
+			<ButtonGhost type="warn" bg={1}>Warning</ButtonGhost>
+			<SmallButtonGhost type="info" bg={1}>Info</SmallButtonGhost>
 		</SCList>
+
+	</ScColumn>
+)
+
+
+export const Icon = () => (
+	<ScColumn>
+
+		<SCList>
+
+			<IconButtonFilled onClick={click()}>
+				<AiFillHome/>
+				Home
+			</IconButtonFilled>
+
+			<IconButtonGhost onClick={click()}>
+				<AiFillHome/>
+				Home
+			</IconButtonGhost>
+
+			<IconButtonText onClick={click()}>
+				<AiFillHome/>
+				Home
+			</IconButtonText>
+
+		</SCList>
+
 
 	</ScColumn>
 )

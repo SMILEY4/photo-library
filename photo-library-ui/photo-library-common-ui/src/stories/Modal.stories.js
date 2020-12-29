@@ -7,7 +7,6 @@ import Notification, {NotificationType} from "../components/modals/Notification"
 import SCList from "./utilis/SCList";
 import NotificationStack from "../components/modals/NotificationStack";
 import ButtonFilled from "../components/button/normal/ButtonFilled";
-import InfoButton from "../components/button/highlighted/InfoButton";
 
 export default {
 	title: 'Modals',
@@ -33,8 +32,8 @@ export const Dialogs = () => (
 			addCloseButton={true}
 			onClose={action("Close Dialog")}
 			footerActions={[
-				<ButtonFilled label="Cancel" onClick={action("Cancel")}/>,
-				<InfoButton label="Accept" onClick={action("Accept")}/>
+				<ButtonFilled onClick={action("Cancel")}>Cancel</ButtonFilled>,
+				<ButtonFilled type="info" onClick={action("Accept")}>Accept</ButtonFilled>
 			]}
 	>
 		Modal Example Content

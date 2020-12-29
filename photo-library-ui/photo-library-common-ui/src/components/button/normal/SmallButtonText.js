@@ -1,16 +1,14 @@
 import React from "react";
-import ButtonBase from "../base/ButtonBase";
-import "./buttonNormal.css"
+import ButtonText from "./ButtonText";
 
-export default function SmallButtonText({label, iconLeft, iconRight, disabled, onClick, className}) {
+export default function SmallButtonText({disabled, onClick, children, className}) {
 	return (
-		<ButtonBase
-			label={label}
-			iconLeft={iconLeft}
-			iconRight={iconRight}
+		<ButtonText
 			disabled={disabled}
 			onClick={onClick}
-			className={"button-small button-text" + (className ? " " + className : "")}
-		/>
+			className={"button-small" + (className ? " " + className : "")}
+		>
+			{children}
+		</ButtonText>
 	)
 }

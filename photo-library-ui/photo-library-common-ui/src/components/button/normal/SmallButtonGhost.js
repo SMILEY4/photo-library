@@ -1,16 +1,16 @@
 import React from "react";
-import ButtonBase from "../base/ButtonBase";
-import "./buttonNormal.css"
+import ButtonGhost from "./ButtonGhost";
 
-export default function SmallButtonGhost({label, iconLeft, iconRight, disabled, onClick, className}) {
+export default function SmallButtonGhost({type, bg, disabled, onClick, children, className}) {
 	return (
-		<ButtonBase
-			label={label}
-			iconLeft={iconLeft}
-			iconRight={iconRight}
+		<ButtonGhost
+			type={type}
+			bg={bg}
 			disabled={disabled}
 			onClick={onClick}
-			className={"button-small button-ghost" + (className ? " " + className : "")}
-		/>
+			className={"button-small" + (className ? " " + className : "")}
+		>
+			{children}
+		</ButtonGhost>
 	)
 }
