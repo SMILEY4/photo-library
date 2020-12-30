@@ -105,22 +105,27 @@ export const BaseNotification = () => (
 
 
 export const Notifications = () => (
-	<NotificationStack notifications={[
-		{
-			type: NotificationType.INFO,
-			title: "Information",
-			text: "Some information about an event",
-			icon: <AiOutlineInfoCircle/>,
-			addCloseButton: true,
-			onClose: action("Close Notification"),
-		},
-		{
-			type: NotificationType.WARN,
-			title: "Warning",
-			text: "an important warning",
-			icon: <AiOutlineInfoCircle/>,
-			addCloseButton: true,
-			onClose: action("Close Notification"),
-		}
-	]}/>
+	<div>
+		<ButtonFilled>
+			Button
+		</ButtonFilled>
+		<NotificationStack notifications={[
+			{
+				type: NotificationType.INFO,
+				title: "Information",
+				text: "Some information about an event",
+				icon: <AiOutlineInfoCircle/>,
+				addCloseButton: true,
+				onClose: action("Close Notification"),
+			},
+			{
+				type: NotificationType.WARN,
+				title: "Warning",
+				text: "an important warning",
+				icon: <AiOutlineInfoCircle/>,
+				addCloseButton: true,
+				onClose: action("Close Notification"),
+			}
+		]}/>
+	</div>
 )

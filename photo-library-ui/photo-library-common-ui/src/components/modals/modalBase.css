@@ -10,6 +10,15 @@
 	align-items:     center;
 }
 
+.modal-hidden-overlay {
+	pointer-events: none;
+}
+
+.modal-hidden-overlay > * {
+	pointer-events: auto;
+}
+
+
 .modal-overlay {
 	background: var(--overlay-color);
 }

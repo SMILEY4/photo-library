@@ -67,10 +67,6 @@ export const Normal = () => (
 export const Highlighted = () => (
 	<SCColumns>
 
-		<SCList title={"Reference"}>
-			<SmallButtonFilled>Button</SmallButtonFilled>
-		</SCList>
-
 		<SCList title={"Filled"}>
 			<HLTextField onChange={action("change")} onAccept={action("accept")} type={HLTextFieldType.NONE}/>
 			<HLTextField onChange={action("change")} onAccept={action("accept")} type={HLTextFieldType.INFO} placeholder="Placeholder"/>
