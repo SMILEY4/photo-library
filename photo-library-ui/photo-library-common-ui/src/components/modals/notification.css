@@ -68,6 +68,7 @@
 }
 
 .notification-body {
+	white-space: pre-wrap;
 }
 
 .notification-close {

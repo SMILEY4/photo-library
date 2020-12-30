@@ -43,9 +43,10 @@
 
 .button-small.button-wrapper > .button,
 .button-small:not(.button-wrapper) {
-	padding:   0.1em 0.3em;
+	padding:   0.2em 0.3em;
 	font-size: var(--font-size-small);
 	gap:       0.3em;
+	box-sizing: border-box;
 }
 
 

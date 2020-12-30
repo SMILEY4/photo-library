@@ -1,17 +1,23 @@
 import React, {useState} from "react"
+import ButtonFilled from "photo-library-common-ui/src/components/button/normal/ButtonFilled";
+import ButtonText from "photo-library-common-ui/src/components/button/normal/ButtonText";
 import "./welcomeScreen.css"
-import Button, {ButtonStyles} from "photo-library-common-ui/src/components/button/Button";
-import Modal from "photo-library-common-ui/src/components/popup/Modal";
+import CreateLibraryDialog from "./CreateLibraryDialog";
+import {createNewLibrary} from "../../app/PhotoLibraryApi";
+import NotificationStack from "photo-library-common-ui/src/components/modals/NotificationStack";
 
 export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 
 	const pathHero = "/welcomeHero.jpg"
 	const pathIcon = "/simpleLib.png"
 	const [showDialogCreateNew, setShowDialogCreateNew] = useState(false)
+	const [notifications, setNotifications] = useState([])
+
 
 	return (
 		<div className={"welcome-root " + theme}>
 			{renderSectionHero()}
+			{renderSectionNotifications()}
 			<div className="welcome-content">
 				{renderSectionTitle()}
 				{renderSectionButtons()}
@@ -20,6 +26,23 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 			{renderDialogCreateNew(showDialogCreateNew)}
 		</div>
 	)
+
+
+	function renderSectionNotifications() {
+		return (
+			<NotificationStack
+				notifications={notifications.map(notification => {
+					return {
+						type: notification.type,
+						title: notification.title,
+						text: notification.text,
+						addCloseButton: true,
+						onClose: notification.onClose
+					}
+				})}
+			/>
+		)
+	}
 
 
 	function renderSectionHero() {
@@ -47,8 +70,12 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 	function renderSectionButtons() {
 		return (
 			<div className="button-section">
-				<Button label="Create New Library" onClick={() => setShowDialogCreateNew(true)}/>
-				<Button label="Open Library" onClick={onOpen}/>
+				<ButtonFilled onClick={() => setShowDialogCreateNew(true)}>
+					Create new Library
+				</ButtonFilled>
+				<ButtonFilled onClick={onOpen}>
+					Open Library
+				</ButtonFilled>
 			</div>
 		)
 	}
@@ -62,10 +89,9 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 					{
 						entries.map(entry => {
 							return (
-								<Button label={entry.name}
-										buttonStyle={ButtonStyles.RAW}
-										key={entry.uid}
-										onClick={() => onOpenRecent(entry)}/>
+								<ButtonText key={entry.uid} onClick={() => onOpenRecent(entry)}>
+									{entry.name}
+								</ButtonText>
 							)
 						})
 					}
@@ -76,23 +102,32 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 
 
 	function renderDialogCreateNew(show) {
-		return (
-			<Modal show={showDialogCreateNew}
-				   title="Create New Library"
-				   onClose={() => setShowDialogCreateNew(false)}>
-				<div className="dir-chooser">
-					<div className={"dir-label"}>
-						Choose Directory
-					</div>
-					<Button className="btn-choose-dir" label="Browse" buttonStyle={ButtonStyles.NORMAL}/>
-				</div>
-			</Modal>
-		)
+		if (show) {
+			return (
+				<CreateLibraryDialog
+					onCancel={() => setShowDialogCreateNew(false)}
+					onCreate={onCreateNew}
+				/>
+			)
+		} else {
+			return null;
+		}
 	}
 
-
-	function onCreateNew() {
-		onProjectOpened();
+	function onCreateNew(libraryName, targetDir) {
+		createNewLibrary(libraryName, targetDir).then(
+			result => onProjectOpened(),
+			error => {
+				setShowDialogCreateNew(false)
+				const notification = {
+					type: "error",
+					title: "Error creating library",
+					text: "The Library \"" + libraryName + "\" could not be created at \n\"" + targetDir + "\".",
+					onClose: () => setNotifications([])
+				}
+				setNotifications([notification])
+			}
+		)
 	}
 
 

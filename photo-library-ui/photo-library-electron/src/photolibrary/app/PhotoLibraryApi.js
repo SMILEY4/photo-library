@@ -23,3 +23,11 @@ export function requestApplicationProjectState() {
 	}
 }
 
+
+export function createNewLibrary(libraryName, targetDir) {
+	console.log("createNewLibrary(" + libraryName + ", " + targetDir + ")")
+	return new Promise((resolve, reject) => {
+		// resolve()
+		reject()
+	})
+}

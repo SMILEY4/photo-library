@@ -122,3 +122,9 @@
 	padding:   0.25em !important;
 	border: 1px solid var(--text-color-0)
 }
+
+.dialog-create-new-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}

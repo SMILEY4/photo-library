@@ -1,91 +1,118 @@
-import React, {useState} from "react";
+import React from "react";
 import GradientBorderWrapper from "../gradientborder/GradientBorderWrapper";
 import "./textfield.css"
 
-export default function TextFieldBase({initialValue, placeholder, editable, disabled, type, fieldSize, maxLength, onChange, onAccept, children, className, innerClassName}) {
+export default class TextFieldBase extends React.Component {
 
-	const [value, setValue] = useState(initialValue ? initialValue : "")
 
-	function onValueChange(event) {
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			value: (props.initialValue ? props.initialValue : "")
+		}
+		this.onValueChange = this.onValueChange.bind(this)
+		this.onLeaveField = this.onLeaveField.bind(this)
+		this.handleKeyDown = this.handleKeyDown.bind(this)
+		this.getClassName = this.getClassName.bind(this)
+		this.getWrapperClassNames = this.getWrapperClassNames.bind(this)
+		this.getInnerClassNames = this.getInnerClassNames.bind(this)
+	}
+
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.initialValue && nextProps.initialValue !== this.state.value) {
+			this.setState({value: nextProps.initialValue})
+		}
+	}
+
+
+	onValueChange(event) {
 		const nextValue = event.target.value;
-		setValue(nextValue)
-		if (onChange) {
-			onChange(nextValue)
+		this.setState({value: nextValue})
+		if (this.props.onChange) {
+			this.props.onChange(nextValue)
 		}
 	}
 
-	function onLeaveField() {
-		if (onAccept) {
-			onAccept(value)
+
+	onLeaveField() {
+		if (this.props.onAccept) {
+			this.props.onAccept(this.state.value)
 		}
 	}
 
-	function handleKeyDown(event) {
-		if (onAccept && event.key === 'Enter') {
-			onAccept(value)
+
+	handleKeyDown(event) {
+		if (this.props.onAccept && event.key === 'Enter') {
+			this.props.onAccept(this.state.value)
 			event.target.blur()
 		}
 	}
 
-	function getClassName() {
+
+	getClassName() {
 		return "text-field"
-			+ (disabled ? " text-field-disabled" : "")
-			+ (editable === false ? " text-field-not-editable" : "")
-			+ (className ? " " + className : "")
-			+ (innerClassName ? " " + innerClassName : "")
+			+ (this.props.disabled ? " text-field-disabled" : "")
+			+ (this.props.editable === false ? " text-field-not-editable" : "")
+			+ (this.props.className ? " " + this.props.className : "")
+			+ (this.props.innerClassName ? " " + this.props.innerClassName : "")
 	}
 
-	function getWrapperClassNames() {
+
+	getWrapperClassNames() {
 		return "text-field-wrapper"
-			+ " text-field-wrapper-" + type
-			+ (className ? " " + className : "")
+			+ " text-field-wrapper-" + this.props.type
+			+ (this.props.className ? " " + this.props.className : "")
 	}
 
-	function getInnerClassNames() {
+
+	getInnerClassNames() {
 		return "text-field"
-			+ (disabled ? " text-field-disabled" : "")
-			+ (editable === false ? " text-field-not-editable" : "")
-			+ (innerClassName ? " " + innerClassName : "")
+			+ (this.props.disabled ? " text-field-disabled" : "")
+			+ (this.props.editable === false ? " text-field-not-editable" : "")
+			+ (this.props.innerClassName ? " " + this.props.innerClassName : "")
 	}
 
-	if(type === undefined || type === "default") {
-		return (
-			<div className={getClassName()}>
-				{children}
-				<input
-					value={value}
-					type="text"
-					placeholder={placeholder}
-					disabled={disabled || editable === false}
-					size={fieldSize}
-					maxLength={maxLength}
-					onChange={onValueChange}
-					onBlur={onLeaveField}
-					onKeyDown={handleKeyDown}
-				/>
-			</div>
-		)
 
-	} else {
-		return (
-			<GradientBorderWrapper className={getWrapperClassNames()}>
-				<div className={getInnerClassNames()}>
-					{children}
+	render() {
+		if (this.props.type === undefined || this.props.type === "default") {
+			return (
+				<div className={this.getClassName()}>
+					{this.props.children}
 					<input
-						value={value}
+						value={this.state.value}
 						type="text"
-						placeholder={placeholder}
-						disabled={disabled || editable === false}
-						size={fieldSize}
-						maxLength={maxLength}
-						onChange={onValueChange}
-						onBlur={onLeaveField}
-						onKeyDown={handleKeyDown}
+						placeholder={this.props.placeholder}
+						disabled={this.props.disabled || this.props.editable === false}
+						size={this.props.fieldSize}
+						maxLength={this.props.maxLength}
+						onChange={this.onValueChange}
+						onBlur={this.onLeaveField}
+						onKeyDown={this.handleKeyDown}
 					/>
 				</div>
-			</GradientBorderWrapper>
-		)
+			)
+
+		} else {
+			return (
+				<GradientBorderWrapper className={this.getWrapperClassNames()}>
+					<div className={this.getInnerClassNames()}>
+						{this.props.children}
+						<input
+							value={this.state.value}
+							type="text"
+							placeholder={this.props.placeholder}
+							disabled={this.props.disabled || this.props.editable === false}
+							size={this.props.fieldSize}
+							maxLength={this.props.maxLength}
+							onChange={this.onValueChange}
+							onBlur={this.onLeaveField}
+							onKeyDown={this.handleKeyDown}
+						/>
+					</div>
+				</GradientBorderWrapper>
+			)
+		}
+
 	}
-
-
 }

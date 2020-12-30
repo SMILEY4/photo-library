@@ -1,6 +1,6 @@
 import React from "react"
 import "./mainScreen.css"
-import Button from "photo-library-common-ui/src/components/button/Button";
+import ButtonFilled from "photo-library-common-ui/src/components/button/normal/ButtonFilled";
 
 export default function MainScreen({onProjectClosed, theme}) {
 	return (
@@ -8,7 +8,9 @@ export default function MainScreen({onProjectClosed, theme}) {
 			<div>
 				Main Screen
 			</div>
-			<Button label={"Close Project"} onClick={onProjectClosed}/>
+			<ButtonFilled onClick={onProjectClosed}>
+				Close Project
+			</ButtonFilled>
 		</div>
 	)
 }

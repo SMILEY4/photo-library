@@ -32,7 +32,8 @@ function buildMainWindow() {
 		show: false,
 		webPreferences: {
 			nodeIntegration: true,
-			nativeWindowOpen: true
+			nativeWindowOpen: true,
+			enableRemoteModule: true
 		}
 	})
 }

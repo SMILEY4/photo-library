@@ -3,16 +3,16 @@ import "./dialog.css"
 import ModalBase from "./ModalBase";
 import {CgClose} from "react-icons/cg";
 
-export default function Dialog({show, icon, addCloseButton, onClose, footerActions, className, children}) {
+export default function Dialog({show, icon, title, addCloseButton, onClose, footerActions, className, children}) {
 	return (
-		<ModalBase show={show} className={"dialog" + (className ? " " + className : "")}>
+		<ModalBase show={show !== false} className={"dialog" + (className ? " " + className : "")}>
 			<div className="dialog-header">
 				{icon
 					? <div className="dialog-icon">{icon}</div>
 					: null
 				}
 				<h3 className="dialog-title">
-					Modal Header
+					{title}
 				</h3>
 				{renderCloseButton(addCloseButton)}
 			</div>

@@ -27,6 +27,10 @@
 	gap:            1em;
 }
 
+.text-field  > * {
+	max-height: 1rem;
+}
+
 .text-field:focus-within {
 	background-color: var(--base-color-0);
 }
@@ -48,8 +52,11 @@
 	fill:  var(--text-color-0);
 }
 
-.text-field > input:invalid {
+input:required,
+input:focus,
+input:invalid {
 	box-shadow: none;
+	outline: none;
 }
 
 .text-field-not-editable > input {
