@@ -1,3 +1,19 @@
+.text-field-wrapper-info {
+	background: var(--gradient-info-0);
+}
+
+.text-field-wrapper-success {
+	background: var(--gradient-success-0);
+}
+
+.text-field-wrapper-error {
+	background: var(--gradient-error-0);
+}
+
+.text-field-wrapper-warn {
+	background: var(--gradient-warn-0);
+}
+
 .text-field {
 	border-radius:  5px;
 	border:         1px solid var(--base-color-3);
@@ -9,10 +25,6 @@
 
 	padding:        0.5em;
 	gap:            1em;
-}
-
-.text-field-with-content > *:first-child {
-	max-height: 1em;
 }
 
 .text-field:focus-within {
@@ -44,11 +56,18 @@
 	cursor: text;
 }
 
-
 .text-field-filled {
 	background-color: var(--base-color-1);
 }
 
 .text-field-ghost {
 	background-color: transparent;
+}
+
+.text-field-ghost-0 {
+	background-color: var(--background-color-0);
+}
+
+.text-field-ghost-1 {
+	background-color: var(--background-color-1);
 }

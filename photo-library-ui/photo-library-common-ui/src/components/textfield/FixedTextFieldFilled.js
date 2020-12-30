@@ -1,12 +1,13 @@
 import React from "react";
 import TextFieldBase from "./TextFieldBase";
+import TextFieldFilled from "./TextFieldFilled";
 
-export default function TextFieldGhost({bg, initialValue, placeholder, editable, disabled, type, fieldSize, maxLength, onChange, onAccept, children, className}) {
+export default function FixedTextFieldFilled({initialValue, placeholder, disabled, type, fieldSize, maxLength, onChange, onAccept, children, className}) {
 	return (
-		<TextFieldBase
+		<TextFieldFilled
 			initialValue={initialValue}
 			placeholder={placeholder}
-			editable={editable}
+			editable={false}
 			disabled={disabled}
 			type={type}
 			fieldSize={fieldSize}
@@ -15,7 +16,6 @@ export default function TextFieldGhost({bg, initialValue, placeholder, editable,
 			onAccept={onAccept}
 			children={children}
 			className={className}
-			innerClassName={"text-field-ghost" + (bg ? " text-field-ghost-" + bg : "")}
 		/>
 	)
 }
