@@ -12,6 +12,7 @@ export default function NotificationStack({notifications}) {
 						<Notification
 							type={notification.type}
 							title={notification.title}
+							caption={notification.caption}
 							icon={notification.icon}
 							addCloseButton={notification.addCloseButton}
 							onClose={notification.onClose}

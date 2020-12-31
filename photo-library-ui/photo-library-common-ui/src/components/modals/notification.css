@@ -71,6 +71,13 @@
 	white-space: pre-wrap;
 }
 
+.notification-caption {
+	font-size:  var(--font-size-tiny);
+	color:      var(--text-color-3);
+	margin-top: 0.5em;
+	align-self: flex-end;
+}
+
 .notification-close {
 	color:         var(--text-color-1);
 	padding:       0.3em;

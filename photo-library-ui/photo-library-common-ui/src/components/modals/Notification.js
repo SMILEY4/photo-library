@@ -10,10 +10,10 @@ export const NotificationType = {
 	INFO: "info"
 }
 
-export default function Notification({type, icon, title, addCloseButton, onClose, children, className}) {
+export default function Notification({type, icon, title, caption, addCloseButton, onClose, children, className}) {
 	return (
 		<GradientBorderWrapper className={"notification-wrapper" + " notification-wrapper-" + type}>
-			<div className={"notification" + (className ? " "+className : "")}>
+			<div className={"notification" + (className ? " " + className : "")}>
 				{
 					icon
 						? <div className="notification-icon">{icon}</div>
@@ -28,11 +28,24 @@ export default function Notification({type, icon, title, addCloseButton, onClose
 					<div className="notification-body">
 						{children}
 					</div>
+					{
+						caption
+							? <div className="notification-caption">{caption}</div>
+							: null
+					}
 				</div>
 				{renderCloseButton(addCloseButton)}
 			</div>
 		</GradientBorderWrapper>
 	)
+
+
+	function getNotificationMeta() {
+		const date = new Date()
+		return date.getHours()
+			+ ":" + date.getMinutes()
+			+ ":" + date.getSeconds()
+	}
 
 
 	function renderCloseButton(addButton) {

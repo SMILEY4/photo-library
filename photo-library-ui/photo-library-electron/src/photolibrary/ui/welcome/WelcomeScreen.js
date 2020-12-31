@@ -1,41 +1,59 @@
-import React, {useState} from "react"
+import React from "react"
 import ButtonFilled from "photo-library-common-ui/src/components/button/normal/ButtonFilled";
 import ButtonText from "photo-library-common-ui/src/components/button/normal/ButtonText";
 import "./welcomeScreen.css"
 import CreateLibraryDialog from "./CreateLibraryDialog";
-import {createNewLibrary} from "../../app/PhotoLibraryApi";
+import {createNewLibrary, uuidv4} from "../../app/PhotoLibraryApi";
 import NotificationStack from "photo-library-common-ui/src/components/modals/NotificationStack";
 
-export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
-
-	const pathHero = "/welcomeHero.jpg"
-	const pathIcon = "/simpleLib.png"
-	const [showDialogCreateNew, setShowDialogCreateNew] = useState(false)
-	const [notifications, setNotifications] = useState([])
+export default class WelcomeScreen extends React.Component {
 
 
-	return (
-		<div className={"welcome-root " + theme}>
-			{renderSectionHero()}
-			{renderSectionNotifications()}
-			<div className="welcome-content">
-				{renderSectionTitle()}
-				{renderSectionButtons()}
-				{renderSectionRecent(recentlyUsed)}
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			showDialogCreateNew: false,
+			notifications: []
+		}
+		this.renderSectionNotifications = this.renderSectionNotifications.bind(this)
+		this.renderSectionHero = this.renderSectionHero.bind(this)
+		this.renderSectionTitle = this.renderSectionTitle.bind(this)
+		this.renderSectionButtons = this.renderSectionButtons.bind(this)
+		this.renderSectionRecent = this.renderSectionRecent.bind(this)
+		this.renderDialogCreateNew = this.renderDialogCreateNew.bind(this)
+		this.onCreateNew = this.onCreateNew.bind(this)
+		this.onCreateNewSuccess = this.onCreateNewSuccess.bind(this)
+		this.onCreateNewFailed = this.onCreateNewFailed.bind(this)
+		this.onOpen = this.onOpen.bind(this)
+		this.onOpenRecent = this.onOpenRecent.bind(this)
+
+	}
+
+	render() {
+		let {recentlyUsed, theme} = this.props;
+		return (
+			<div className={"welcome-root " + theme}>
+				{this.renderSectionHero()}
+				{this.renderSectionNotifications()}
+				<div className="welcome-content">
+					{this.renderSectionTitle()}
+					{this.renderSectionButtons()}
+					{this.renderSectionRecent(recentlyUsed)}
+				</div>
+				{this.renderDialogCreateNew(this.state.showDialogCreateNew)}
 			</div>
-			{renderDialogCreateNew(showDialogCreateNew)}
-		</div>
-	)
+		)
+	}
 
-
-	function renderSectionNotifications() {
+	renderSectionNotifications() {
 		return (
 			<NotificationStack
-				notifications={notifications.map(notification => {
+				notifications={this.state.notifications.map(notification => {
 					return {
 						type: notification.type,
 						title: notification.title,
 						text: notification.text,
+						caption: notification.caption,
 						addCloseButton: true,
 						onClose: notification.onClose
 					}
@@ -44,8 +62,9 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 		)
 	}
 
-
-	function renderSectionHero() {
+	renderSectionHero() {
+		const pathHero = "/welcomeHero.jpg"
+		const pathIcon = "/simpleLib.png"
 		return (
 			<div className="hero-section">
 				<div className="hero-image" style={{backgroundImage: "url(" + pathHero + ")"}}/>
@@ -56,8 +75,7 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 		)
 	}
 
-
-	function renderSectionTitle() {
+	renderSectionTitle() {
 		return (
 			<div className="title-section">
 				<div className="title">Welcome!</div>
@@ -66,22 +84,20 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 		)
 	}
 
-
-	function renderSectionButtons() {
+	renderSectionButtons() {
 		return (
 			<div className="button-section">
-				<ButtonFilled onClick={() => setShowDialogCreateNew(true)}>
+				<ButtonFilled onClick={() => this.setState({showDialogCreateNew: true})}>
 					Create new Library
 				</ButtonFilled>
-				<ButtonFilled onClick={onOpen}>
+				<ButtonFilled onClick={this.onOpen}>
 					Open Library
 				</ButtonFilled>
 			</div>
 		)
 	}
 
-
-	function renderSectionRecent(entries) {
+	renderSectionRecent(entries) {
 		return (
 			<div className="recent-section">
 				<div className="recent-content">
@@ -89,7 +105,7 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 					{
 						entries.map(entry => {
 							return (
-								<ButtonText key={entry.uid} onClick={() => onOpenRecent(entry)}>
+								<ButtonText key={entry.uid} onClick={() => this.onOpenRecent(entry)}>
 									{entry.name}
 								</ButtonText>
 							)
@@ -100,13 +116,12 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 		)
 	}
 
-
-	function renderDialogCreateNew(show) {
+	renderDialogCreateNew(show) {
 		if (show) {
 			return (
 				<CreateLibraryDialog
-					onCancel={() => setShowDialogCreateNew(false)}
-					onCreate={onCreateNew}
+					onCancel={() => this.setState({showDialogCreateNew: false})}
+					onCreate={this.onCreateNew}
 				/>
 			)
 		} else {
@@ -114,30 +129,50 @@ export default function WelcomeScreen({recentlyUsed, onProjectOpened, theme}) {
 		}
 	}
 
-	function onCreateNew(libraryName, targetDir) {
+	onCreateNew(libraryName, targetDir) {
 		createNewLibrary(libraryName, targetDir).then(
-			result => onProjectOpened(),
-			error => {
-				setShowDialogCreateNew(false)
-				const notification = {
-					type: "error",
-					title: "Error creating library",
-					text: "The Library \"" + libraryName + "\" could not be created at \n\"" + targetDir + "\".",
-					onClose: () => setNotifications([])
+			response => {
+				if (response.status === 201) {
+					this.onCreateNewSuccess()
+				} else {
+					response.text().then(
+						msgError => this.onCreateNewFailed(msgError)
+					)
 				}
-				setNotifications([notification])
-			}
+			},
+			error => this.onCreateNewFailed("Unexpected Error.")
 		)
 	}
 
-
-	function onOpen() {
-		onProjectOpened();
+	onCreateNewSuccess() {
+		this.props.onProjectOpened()
 	}
 
-
-	function onOpenRecent(entry) {
-		onProjectOpened();
+	onCreateNewFailed(message) {
+		this.setState({showDialogCreateNew: false})
+		const currentDate = new Date();
+		const notification = {
+			uuid: uuidv4(),
+			type: "error",
+			title: "Error creating library",
+			caption: currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
+			text: message,
+			onClose: () => {
+				this.setState({
+					notifications: this.state.notifications.filter(n => n.uuid !== notification.uuid)
+				})
+			}
+		}
+		this.setState({
+			notifications: this.state.notifications.concat([notification])
+		})
 	}
 
+	onOpen() {
+		this.props.onProjectOpened();
+	}
+
+	onOpenRecent() {
+		this.props.onProjectOpened();
+	}
 }

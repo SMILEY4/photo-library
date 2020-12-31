@@ -91,7 +91,6 @@ export default class CreateLibraryDialog extends Component {
 						</SmallButtonFilled>
 					</FixedTextFieldGhost>
 
-
 				</div>
 
 			</Dialog>

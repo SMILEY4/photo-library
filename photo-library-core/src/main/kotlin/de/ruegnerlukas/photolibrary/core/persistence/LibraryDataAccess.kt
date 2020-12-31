@@ -5,14 +5,9 @@ import java.sql.ResultSet
 import javax.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
-class ProjectDataAccess(val dataAccess: DataAccess) {
+class LibraryDataAccess(val dataAccess: DataAccess) {
 
-	fun openProjectFile(path: String) {
-		dataAccess.openDatabaseFile(path)
-	}
-
-
-	fun initializeProject(path: String, name: String) {
+	fun createLibrary(path: String, name: String) {
 		dataAccess.openDatabaseFile("$path/$name")
 
 		dataAccess.createTable(
@@ -24,18 +19,10 @@ class ProjectDataAccess(val dataAccess: DataAccess) {
 		)
 		dataAccess.insert("INSERT INTO project_meta VALUES ('name', '$name')")
 		dataAccess.insert("INSERT INTO project_meta VALUES ('created', '${System.currentTimeMillis()}')")
+	}
 
-		dataAccess.createTable(
-			"images",
-			listOf(
-				"id IDENTITY PRIMARY KEY",
-				"path VARCHAR",
-				"name VARCHAR",
-				"type VARCHAR",
-				"thumbnail BINARY"
-			)
-		)
-
+	fun openProjectFile(path: String) {
+		dataAccess.openDatabaseFile(path)
 	}
 
 	fun getProjectMeta(): ProjectMeta {

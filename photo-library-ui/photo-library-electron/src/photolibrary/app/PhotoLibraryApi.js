@@ -1,3 +1,6 @@
+const fetch = require("node-fetch");
+
+const API_URL = "http://localhost:8080/photolibrary/api"
 const PROJECT_APP_STATE_OPEN = "PROJECT-OPEN"
 const PROJECT_APP_STATE_NONE = "NONE"
 
@@ -26,8 +29,16 @@ export function requestApplicationProjectState() {
 
 export function createNewLibrary(libraryName, targetDir) {
 	console.log("createNewLibrary(" + libraryName + ", " + targetDir + ")")
-	return new Promise((resolve, reject) => {
-		// resolve()
-		reject()
-	})
+	return fetch(
+		API_URL + "/library?name=" + encodeURI(libraryName) + "&path=" + encodeURI(targetDir),
+		{method: 'POST'}
+	)
+}
+
+
+export function uuidv4() {
+	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+		const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+		return v.toString(16);
+	});
 }

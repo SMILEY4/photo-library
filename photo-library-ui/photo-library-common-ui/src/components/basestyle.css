@@ -13,6 +13,7 @@
 	--text-color-light-0:       hsl(0, 0%, 65%);
 	--text-color-light-1:       hsl(0, 1%, 25%);
 	--text-color-light-2:       hsl(0, 0%, 12%);
+	--text-color-light-3:       hsl(0, 0%, 45%);
 
 
 	--background-color-dark-0:  hsl(195, 3%, 25%);
@@ -23,9 +24,10 @@
 	--base-color-dark-2:        hsl(195, 2%, 33%);
 	--base-color-dark-3:        hsl(195, 2%, 40%);
 
-	--text-color-dark-0:        hsl(195, 3%, 55%);
+	--text-color-dark-0:        hsl(0, 0%, 55%);
 	--text-color-dark-1:        hsl(0, 0%, 80%);
 	--text-color-dark-2:        hsl(0, 0%, 90%);
+	--text-color-dark-3:        hsl(0, 0%, 60%);
 
 	--overlay-color-light:      hsla(0, 0%, 0%, 0.3);
 	--overlay-color-dark:       hsla(0, 0%, 60%, 0.3);
@@ -49,6 +51,8 @@
 
 	--font--size-default:       13px;
 	--font-size-small:          11px;
+	--font-size-tiny:           9px;
+
 }
 
 
@@ -62,6 +66,7 @@
 	--text-color-0:       var(--text-color-dark-0);
 	--text-color-1:       var(--text-color-dark-1);
 	--text-color-2:       var(--text-color-dark-2);
+	--text-color-3:       var(--text-color-dark-3);
 	--overlay-color:      var(--overlay-color-dark);
 	--gradient-info-1:    var(--gradient-info-dark-1);
 	--gradient-success-1: var(--gradient-success-dark-1);
@@ -80,6 +85,7 @@
 	--text-color-0:       var(--text-color-light-0);
 	--text-color-1:       var(--text-color-light-1);
 	--text-color-2:       var(--text-color-light-2);
+	--text-color-3:       var(--text-color-light-3);
 	--overlay-color:      var(--overlay-color-light);
 	--gradient-info-1:    var(--gradient-info-light-1);
 	--gradient-success-1: var(--gradient-success-light-1);

@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response
 @Path("${ControllerConstants.PHOTO_LIB_BASE_URI}/api")
 class ImageController(val imageService: ImageService) {
 
-	private val log: Logger = Logger.getLogger(ProjectController::class.java)
+	private val log: Logger = Logger.getLogger(LibraryController::class.java)
 
 
 	@POST

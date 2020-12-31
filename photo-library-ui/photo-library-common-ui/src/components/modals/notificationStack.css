@@ -5,11 +5,11 @@
 }
 
 .notification-stack-base {
-	background: none;
-	display:          flex;
-	gap:              1em;
+	background:     none;
+	display:        flex;
+	gap:            1em;
 	flex-direction: column-reverse;
-	align-items: center;
+	align-items:    center;
 }
 
 .notification-stack-base > * {
