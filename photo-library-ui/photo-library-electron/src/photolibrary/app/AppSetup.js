@@ -57,6 +57,10 @@ function setupCore() {
 	log.info("PATH: " + corePath)
 
 	coreChild = childProcess.spawn(corePath)
+	coreChild.on('data', (data) => {
+		console.log("[CORE]: " + data)
+		log.info("[CORE]: " + data)
+	})
 	coreChild.on('error', (err) => {
 		console.error("Failed to start core: " + err)
 		log.info("Failed to start core: " + err)

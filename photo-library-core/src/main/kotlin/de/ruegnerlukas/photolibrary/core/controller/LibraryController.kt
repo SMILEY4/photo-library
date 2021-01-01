@@ -50,6 +50,7 @@ class LibraryController(val libraryService: LibraryService) {
             Response
                 .status(Response.Status.INTERNAL_SERVER_ERROR)
                 .header("Access-Control-Allow-Origin", "*")
+                .entity(e.message)
                 .build();
         }
     }
