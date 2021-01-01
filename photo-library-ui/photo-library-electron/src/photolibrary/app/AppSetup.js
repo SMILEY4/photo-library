@@ -3,11 +3,22 @@ const {BrowserWindow} = require('electron');
 const electron = require('electron')
 const os = require('os')
 const childProcess = require('child_process')
+const kill  = require('tree-kill');
+
+const log = require('electron-log');
+log.transports.file.level = 'info';
+log.transports.file.file = log.transports.file.file = "C:\\Users\\LukasRuegner\\Desktop\\log.log";
 
 const DEV_INTERFACE_LOCATION = "http://localhost:3000";
-const PROD_INTERFACE_LOCATION = `file://${__dirname}/../build/index.html`;
+const PROD_INTERFACE_LOCATION = `file://${__dirname}/../../../build/index.html`;
+const CORE_LOCATION_WIN = "\\photo-library-core-win.exe"
+const CORE_LOCATION_MAC = "\\photo-library-core-macos"
 
 let initialWindow;
+
+function getRootDir() {
+	return `${__dirname}`.replace("\\app.asar\\src\\photolibrary\\app", "")
+}
 
 
 function createInitialWindow(isInDevMode) {
@@ -35,15 +46,25 @@ function setupCore() {
 	let coreChild
 
 	if (platform === 'darwin') {
-		corePath = electron.app.getAppPath()  + '\\public\\photo-library-core-1.0-SNAPSHOT-runner'
-		coreChild = childProcess.spawn(corePath)
+		corePath = CORE_LOCATION_MAC
+		childProcess.exec("chmod +x " + CORE_LOCATION_MAC)
 	} else {
-		corePath = electron.app.getAppPath() + '\\public\\photo-library-core-1.0-SNAPSHOT-runner.exe'
-		coreChild = childProcess.spawn(corePath)
+		corePath = CORE_LOCATION_WIN
 	}
 
+	corePath = getRootDir() + "" + corePath
+	console.log("PATH: " + corePath)
+	log.info("PATH: " + corePath)
+
+	coreChild = childProcess.spawn(corePath)
+	coreChild.on('error', (err) => {
+		console.error("Failed to start core: " + err)
+		log.info("Failed to start core: " + err)
+		throw err
+	});
+
 	initialWindow.on('closed', () => {
-		require('tree-kill').kill(coreChild.pid)
+		kill(coreChild.pid)
 	})
 }
 

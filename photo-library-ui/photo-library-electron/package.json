@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.5.0",
     "concurrently": "^5.3.0",
     "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.3.1",
     "node-fetch": "^2.6.1",
     "photo-library-common-ui": "file:../photo-library-common-ui",
     "react": "^17.0.1",
@@ -35,9 +36,13 @@
     "files": [
       "./build/**/*",
       "build/**/*",
-      "./src/main.js",
+      "./src/**/*",
       "dist/**/*",
       "package.json"
+    ],
+    "extraResources": [
+      "photo-library-core-win.exe",
+      "photo-library-core-macos"
     ],
     "win": {
       "target": "portable"
