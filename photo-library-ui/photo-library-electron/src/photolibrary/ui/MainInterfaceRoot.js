@@ -8,7 +8,7 @@ import WelcomeScreen from "./welcome/WelcomeScreen";
 const {ipcRenderer} = window.require('electron');
 
 
-export default function MainInterfaceRoot({}) {
+export default function MainInterfaceRoot() {
 
 	const [theme] = useState("theme-light")
 	const [appState, setAppState] = useState(null)
@@ -35,4 +35,3 @@ export default function MainInterfaceRoot({}) {
 	}
 
 }
-

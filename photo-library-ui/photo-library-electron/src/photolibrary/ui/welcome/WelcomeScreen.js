@@ -3,7 +3,7 @@ import ButtonFilled from "photo-library-common-ui/src/components/button/normal/B
 import ButtonText from "photo-library-common-ui/src/components/button/normal/ButtonText";
 import "./welcomeScreen.css"
 import CreateLibraryDialog from "./CreateLibraryDialog";
-import {createNewLibrary, uuidv4} from "../../app/PhotoLibraryApi";
+import {createNewLibrary} from "../../app/PhotoLibraryApi";
 import NotificationStack from "photo-library-common-ui/src/components/modals/NotificationStack";
 
 export default class WelcomeScreen extends React.Component {
@@ -29,6 +29,7 @@ export default class WelcomeScreen extends React.Component {
 
 	}
 
+
 	render() {
 		let {recentlyUsed, theme} = this.props;
 		return (
@@ -44,6 +45,7 @@ export default class WelcomeScreen extends React.Component {
 			</div>
 		)
 	}
+
 
 	renderSectionNotifications() {
 		return (
@@ -62,6 +64,7 @@ export default class WelcomeScreen extends React.Component {
 		)
 	}
 
+
 	renderSectionHero() {
 		const pathHero = "/welcomeHero.jpg"
 		const pathIcon = "/simpleLib.png"
@@ -75,6 +78,7 @@ export default class WelcomeScreen extends React.Component {
 		)
 	}
 
+
 	renderSectionTitle() {
 		return (
 			<div className="title-section">
@@ -83,6 +87,7 @@ export default class WelcomeScreen extends React.Component {
 			</div>
 		)
 	}
+
 
 	renderSectionButtons() {
 		return (
@@ -96,6 +101,7 @@ export default class WelcomeScreen extends React.Component {
 			</div>
 		)
 	}
+
 
 	renderSectionRecent(entries) {
 		return (
@@ -116,6 +122,7 @@ export default class WelcomeScreen extends React.Component {
 		)
 	}
 
+
 	renderDialogCreateNew(show) {
 		if (show) {
 			return (
@@ -128,6 +135,7 @@ export default class WelcomeScreen extends React.Component {
 			return null;
 		}
 	}
+
 
 	onCreateNew(libraryName, targetDir) {
 		createNewLibrary(libraryName, targetDir).then(
@@ -144,15 +152,17 @@ export default class WelcomeScreen extends React.Component {
 		)
 	}
 
+
 	onCreateNewSuccess() {
 		this.props.onProjectOpened()
 	}
+
 
 	onCreateNewFailed(message) {
 		this.setState({showDialogCreateNew: false})
 		const currentDate = new Date();
 		const notification = {
-			uuid: uuidv4(),
+			uuid: "" + Math.random(),
 			type: "error",
 			title: "Error creating library",
 			caption: currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
@@ -168,9 +178,11 @@ export default class WelcomeScreen extends React.Component {
 		})
 	}
 
+
 	onOpen() {
 		this.props.onProjectOpened();
 	}
+
 
 	onOpenRecent() {
 		this.props.onProjectOpened();
